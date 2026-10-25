@@ -70,7 +70,7 @@ const nav = [
     />
     {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 
-    <script is:inline define:vars={{ GA_ID: SITE.gaId }}>
+    <script is:inline define:vars={{ GA_ID: SITE.gaId, GTM_ID: SITE.gtmId }}>
       // Consentement + GA4. GA n'est chargé qu'après acceptation (CNIL).
       window.dataLayer = window.dataLayer || [];
       function gtag(){ dataLayer.push(arguments); }
@@ -85,6 +85,12 @@ const nav = [
         document.head.appendChild(s);
         gtag('js', new Date());
         gtag('config', GA_ID, { anonymize_ip: true });
+        if (GTM_ID) {
+          dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var g = document.createElement('script');
+          g.async = true; g.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+          document.head.appendChild(g);
+        }
       }
       window.__bi.loadGA = loadGA;
       if (window.__bi.consent === 'yes') loadGA();

@@ -18,9 +18,14 @@ export const FAQ: Faq[] = [
     tags: ['entreprises'],
   },
   {
-    q: "Combien coûte l'accompagnement individuel ?",
-    a: "600 € HT par mois pour une dirigeante ou cadre clé financée par son entreprise, séances, exercices, lectures et disponibilité WhatsApp compris, sur un parcours de quatre à six mois. À titre personnel, l'accompagnement est proposé à 400 € par mois, sans engagement. Un premier échange de 30 minutes en visio est offert.",
-    tags: ['entreprises', 'particulieres', 'home'],
+    q: "Combien coûte l'accompagnement individuel en entreprise ?",
+    a: "600 € HT par mois, facturés à l'entreprise, sur un parcours de six mois (quatre minimum). Le tarif comprend deux séances d'1h30 par mois en présentiel, les exercices et lectures entre les séances, la disponibilité de Cloé sur WhatsApp, l'analyse écrite d'Émilien après chaque séance, et le cadrage et le bilan avec l'entreprise. Aucun supplément pour le lieu ni les déplacements à Paris. Un premier échange de 30 minutes en visio est offert.",
+    tags: ['entreprises'],
+  },
+  {
+    q: "Combien coûte l'accompagnement à titre personnel ?",
+    a: "400 € par mois, sans engagement : vous choisissez le rythme et vous arrêtez quand vous voulez. Le tarif comprend les séances d'1h30 à Paris 10e, les exercices et lectures, la disponibilité de Cloé sur WhatsApp et l'analyse écrite d'Émilien. La séance découverte est offerte.",
+    tags: ['particulieres'],
   },
   {
     q: "Que contient un atelier en entreprise ?",

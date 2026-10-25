@@ -270,3 +270,12 @@ footer .logo .l1 { color: #fff; } footer .logo .l2 { color: var(--rouge); }
 .split.top { align-items: start; }
 .split.hero-split { grid-template-columns: 1.15fr .85fr; }
 @media (max-width: 900px) { .split, .split.hero-split { grid-template-columns: 1fr; gap: 2rem; } .hero-img { order: -1; max-width: 420px; } }
+
+/* Home additions */
+.hero-band { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; object-position: center 75%; border-radius: 8px; }
+@media (max-width: 640px) { .hero-band { aspect-ratio: 4 / 3; } }
+.stats > div { border-top: 2px solid var(--violet); padding-top: 1rem; }
+.stats .num { font-family: var(--font-display); font-weight: 700; color: var(--violet); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+ul.plain { list-style: none; display: grid; gap: 0.6rem; }
+ul.plain li { padding-left: 1.2rem; position: relative; }
+ul.plain li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 0.5rem; height: 0.5rem; background: var(--rouge); border-radius: 50%; }

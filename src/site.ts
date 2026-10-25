@@ -3,6 +3,7 @@ export const SITE = {
   name: 'Blocages & Intuition',
   url: 'https://amarecherche.fr',
   gaId: 'G-N18EEMVZ68',
+  gtmId: 'GTM-59LD69J6', // conteneur existant ; vide = pas de GTM
   // À VÉRIFIER : adresse email de contact affichée sur le site
   email: 'cloe@amarecherche.fr',
   // À COMPLÉTER : URL de la page LinkedIn de Cloé et de la page entreprise B&I
