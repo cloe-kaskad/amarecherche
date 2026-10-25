@@ -13,8 +13,10 @@ interface Props {
   schema?: object | object[];
   ogImage?: string;
   noindex?: boolean;
+  theme?: 'creme' | 'bordeaux' | 'rose' | 'violet' | 'ciel' | 'blanc';
+  mark?: string;
 }
-const { title, description, schema, ogImage = '/images/og-blocages-intuition.png', noindex = false } = Astro.props;
+const { title, description, schema, ogImage = '/images/og-blocages-intuition.png', noindex = false, theme = 'creme', mark = '' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const path = Astro.url.pathname;
 
@@ -104,7 +106,7 @@ const nav = [
       });
     </script>
   </head>
-  <body>
+  <body data-theme={theme}>
     <header class="nav">
       <div class="wrap nav-inner">
         <a href="/" class="logo" aria-label="Blocages & Intuition, accueil">
@@ -124,6 +126,7 @@ const nav = [
     </header>
 
     <main>
+      {mark && <div class="page-mark" aria-hidden="true">{mark}</div>}
       <slot />
     </main>
 

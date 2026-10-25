@@ -38,7 +38,7 @@ const service = {
   ],
 };
 ---
-<Base title={title} description={description} schema={[service, faqSchema(faq)]}>
+<Base title={title} description={description} theme="rose" mark="Ateliers" schema={[service, faqSchema(faq)]}>
   <section class="hero">
     <div class="wrap split hero-split">
       <div>
@@ -70,7 +70,7 @@ const service = {
       <p class="lead" style="margin-top:1rem;max-width:720px">Chaque atelier part d'un seul thème, choisi avec vous (ou par sondage auprès des participantes, comme chez Covivio). Les thèmes se combinent en cycle de trois.</p>
       <div class="grid grid-3" style="margin-top:2.5rem">
         {themes.map((th, i) => (
-          <div class="card white"><p class="num">0{i + 1}</p><h3>{th.t}</h3><p>{th.d}</p></div>
+          <div class="card white"><p class="num n">0{i + 1}</p><h3>{th.t}</h3><p>{th.d}</p></div>
         ))}
       </div>
     </div>

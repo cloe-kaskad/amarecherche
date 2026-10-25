@@ -10,7 +10,7 @@ const title = "Blocages & Intuition | Accompagnement de dirigeantes et femmes ca
 const description =
   "Accompagnement individuel en entreprise et ateliers pour des femmes qui réussissent mais à qui cela coûte : syndrome de l'imposteur, sur-adaptation, intuition. Psychologie, neurosciences, philosophie et corps. Paris 10e.";
 ---
-<Base title={title} description={description} schema={faqSchema(faq)}>
+<Base title={title} description={description} theme="creme" mark="" schema={faqSchema(faq)}>
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
@@ -88,7 +88,7 @@ const description =
           "Vous sur-adaptez en permanence, et vous sentez que ça coûte quelque chose d'essentiel.",
           "Vous connaissez vos schémas. Mais comprendre ne suffit pas à déplacer.",
         ].map((t, i) => (
-          <div class="card white"><p class="num">0{i + 1}</p><p>{t}</p></div>
+          <div class="card white"><p class="num n">0{i + 1}</p><p>{t}</p></div>
         ))}
       </div>
     </div>

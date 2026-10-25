@@ -312,3 +312,68 @@ ul.plain li::before { content: ''; position: absolute; left: 0; top: 0.6em; widt
   .faq details p { animation: faqIn .35s ease; }
   @keyframes faqIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 }
+
+/* ===== Direction artistique : une couleur par page, un mot en filigrane, l'esperluette en motif ===== */
+.page-mark {
+  position: absolute; top: 56px; right: -0.04em; z-index: 2; pointer-events: none; user-select: none;
+  font-family: var(--font-display); font-weight: 700; line-height: 0.8; letter-spacing: -0.04em;
+  font-size: clamp(6rem, 22vw, 20rem); color: var(--page-ink, var(--violet)); opacity: var(--page-mark-opacity, 0.07);
+  max-width: 100vw; overflow: hidden; white-space: nowrap;
+}
+main { position: relative; }
+.hero { position: relative; z-index: 1; }
+
+/* Thèmes de page */
+body[data-theme="bordeaux"] { --page: var(--bordeaux); --page-ink: var(--rose); --page-mark-opacity: .16; }
+body[data-theme="bordeaux"] .hero { background: var(--bordeaux); color: var(--creme); }
+body[data-theme="bordeaux"] .hero h1, body[data-theme="bordeaux"] .hero .lead, body[data-theme="bordeaux"] .hero p { color: var(--creme); }
+body[data-theme="bordeaux"] .hero h1 em { color: var(--rose); }
+body[data-theme="bordeaux"] .hero .eyebrow { color: var(--rose); }
+body[data-theme="bordeaux"] .hero .hero-meta { color: rgba(245,237,227,.7); }
+body[data-theme="bordeaux"] .hero .btn-outline { color: var(--creme); border-color: var(--creme); }
+body[data-theme="bordeaux"] .hero .btn-outline:hover { background: var(--creme); color: var(--bordeaux); }
+
+body[data-theme="violet"] { --page: var(--violet); --page-ink: #fff; --page-mark-opacity: .09; }
+body[data-theme="violet"] .hero { background: var(--violet); }
+body[data-theme="violet"] .hero h1, body[data-theme="violet"] .hero .lead, body[data-theme="violet"] .hero p { color: var(--creme); }
+body[data-theme="violet"] .hero h1 em { color: var(--rose); }
+body[data-theme="violet"] .hero .eyebrow { color: var(--rose); }
+
+body[data-theme="rose"] { --page: var(--rouge); --page-ink: var(--rouge); --page-mark-opacity: .12; }
+body[data-theme="rose"] .hero { background: var(--rose); }
+body[data-theme="rose"] .hero h1 em { color: var(--bordeaux); }
+body[data-theme="rose"] .hero .eyebrow { color: var(--bordeaux); }
+body[data-theme="rose"] .hero .lead { color: #3a1218; }
+
+body[data-theme="ciel"] { --page: #2b5f8f; --page-ink: #2b5f8f; --page-mark-opacity: .09; }
+body[data-theme="ciel"] .hero { background: #d4eaff; }
+body[data-theme="ciel"] .hero h1 em { color: #2b5f8f; }
+body[data-theme="ciel"] .hero .eyebrow { color: #2b5f8f; }
+
+body[data-theme="blanc"] { --page: var(--violet); --page-mark-opacity: .06; }
+body[data-theme="blanc"] .hero { background: var(--blanc); }
+
+body[data-theme="creme"] { --page: var(--violet); }
+
+/* Le menu indique la page courante dans sa couleur */
+.nav-links a[aria-current="page"] { color: var(--page, var(--violet)); }
+.nav-links a[aria-current="page"]::after { background: var(--page, var(--rouge)) !important; }
+
+/* Grands numéros en italique */
+.card .num.n { font-family: var(--font-accent); font-style: italic; font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--violet); letter-spacing: 0; margin-bottom: 1rem; }
+.step::before { font-family: var(--font-accent); font-style: italic; font-weight: 400; font-size: 2rem; color: var(--violet); }
+
+/* L'esperluette, motif de marque, dans les sections sombres */
+section.dark { position: relative; overflow: hidden; }
+section.dark::before {
+  content: '&'; position: absolute; right: -0.08em; bottom: -0.35em; z-index: 0; pointer-events: none;
+  font-family: var(--font-accent); font-style: italic; font-size: clamp(14rem, 36vw, 32rem); line-height: 1; color: var(--rose); opacity: .14;
+}
+section.dark > .wrap { position: relative; z-index: 1; }
+
+/* Portraits en bichromie dans les sections violettes */
+section.dark img { filter: grayscale(1) contrast(1.05); mix-blend-mode: luminosity; }
+section.dark img:hover { filter: none; mix-blend-mode: normal; }
+
+/* Bandes de titre : un mot géant comme ouverture de section */
+.word-band { font-family: var(--font-accent); font-style: italic; font-size: clamp(3rem, 9vw, 8rem); line-height: .95; color: var(--violet); letter-spacing: -0.02em; }
