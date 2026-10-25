@@ -1,4 +1,9 @@
 ---
+import '@fontsource-variable/dm-sans/wght.css';
+import '@fontsource-variable/dm-sans/wght-italic.css';
+import '@fontsource-variable/league-spartan';
+import '@fontsource/libre-baskerville/400-italic.css';
+import '@fontsource/libre-baskerville/700.css';
 import '../styles/global.css';
 import { SITE, CALENDAR_URL } from '../site';
 
@@ -62,12 +67,6 @@ const nav = [
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..700;1,9..40,400&family=Libre+Baskerville:ital@1&display=swap"
-      rel="stylesheet"
-    />
     {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 
     <script is:inline define:vars={{ GA_ID: SITE.gaId, GTM_ID: SITE.gtmId }}>

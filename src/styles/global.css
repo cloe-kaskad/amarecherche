@@ -13,8 +13,8 @@
   --rose: #f7beca;
   --bordeaux: #510004;
 
-  --font-display: 'League Spartan', 'Helvetica Neue', Arial, sans-serif;
-  --font-body: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'League Spartan Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'DM Sans Variable', 'Helvetica Neue', Arial, sans-serif;
   --font-accent: 'Libre Baskerville', Georgia, serif;
 
   --max: 1120px;
@@ -286,6 +286,11 @@ ul.plain li::before { content: ''; position: absolute; left: 0; top: 0.6em; widt
 .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 3.5rem; align-items: center; }
 .hero .hero-title { font-family: var(--hero-font, var(--font-body)); font-weight: var(--hero-weight, 600); font-size: clamp(1.9rem, 3.3vw, 2.55rem); max-width: none; letter-spacing: -0.015em; line-height: 1.15; }
 .hero-title em { font-weight: 400; }
+/* Variantes de mise en valeur des mots-clés du titre (classe sur le h1) */
+.hero-title.kw-bold em { font-family: inherit; font-style: normal; font-weight: 700; color: var(--violet); }
+.hero-title.kw-red em { font-family: inherit; font-style: normal; font-weight: 700; color: var(--rouge); }
+.hero-title.kw-mark em { font-family: inherit; font-style: normal; font-weight: 700; color: var(--noir); background: linear-gradient(transparent 62%, var(--rose) 62%); padding: 0 .1em; }
+.hero-title.kw-underline em { font-family: inherit; font-style: normal; font-weight: 700; color: var(--noir); text-decoration: underline; text-decoration-color: var(--rouge); text-decoration-thickness: .12em; text-underline-offset: .12em; }
 .hero-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 60% 70%; border-radius: 8px; }
 .hero .lead { max-width: 32rem; margin-top: 1.25rem; font-size: 0.95rem; line-height: 1.5; }
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; } .hero-photo { aspect-ratio: 4 / 3; } .hero-title br { display: none; } }
