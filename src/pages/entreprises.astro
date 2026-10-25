@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
 import CTA from '../components/CTA.astro';
 import Faq from '../components/Faq.astro';
 import LeadForm from '../components/LeadForm.astro';
@@ -30,25 +31,26 @@ const service = {
 };
 ---
 <Base title={title} description={description} schema={[service, faqSchema(faq)]}>
-  <section class="hero hero-cover">
-    <img class="bg" src="/images/cloe-dana-atelier.webp" alt="Cloé Dana lors d'une intervention Blocages & Intuition en entreprise" width="1200" height="1600" loading="eager" fetchpriority="high" />
-    <div class="wrap">
-      <p class="eyebrow">Entreprises · Accompagnement individuel</p>
-      <h1>Vos dirigeantes clés opèrent en dessous de leur <em>puissance réelle.</em></h1>
-      <p class="lead">Ce qui fait leur force est aussi ce qui les épuise. Ça se paie en doute, en décisions retardées, en départs silencieux. Nous travaillons sur ce qui génère ces comportements, pas seulement sur les comportements.</p>
-      <div class="btn-row">
-        <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="entreprises-hero">Réserver un échange</a>
-        <a href="#presentation" class="btn btn-outline" data-event="secondary_click" data-location="entreprises-hero">Recevoir la présentation</a>
+  <section class="hero">
+    <div class="wrap split hero-split">
+      <div>
+        <p class="eyebrow">Entreprises · Accompagnement individuel</p>
+        <h1>Vos dirigeantes clés opèrent en dessous de leur <em>puissance réelle.</em></h1>
+        <p class="lead">
+          Ce qui fait leur force est aussi ce qui les épuise : elles performent, elles s'adaptent, elles tiennent. Et ça se paie, en doute, en décisions retardées, en départs silencieux. Blocages & Intuition travaille sur ce qui génère ces comportements, pas seulement sur les comportements.
+        </p>
+        <div class="btn-row">
+          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="entreprises-hero">Réserver un échange</a>
+          <a href="#presentation" class="btn btn-outline" data-event="secondary_click" data-location="entreprises-hero">Recevoir la présentation</a>
+        </div>
+        <div class="hero-meta">
+          <span><Icon name="euro" />{PRICING.entreprise.monthly} € HT / mois</span>
+          <span><Icon name="pin" />Présentiel, chez vous ou à Paris 10e</span>
+          <span><Icon name="building" />Facturation entreprise</span>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section class="tight">
-    <div class="wrap">
-      <div class="kpis">
-        <div><span class="k">{PRICING.entreprise.monthly} € HT</span><span class="l">par mois, tout compris, facturé à l'entreprise</span></div>
-        <div><span class="k">2 × 1h30</span><span class="l">par mois, en présentiel, chez vous ou à Paris 10e</span></div>
-        <div><span class="k">{PRICING.entreprise.standardMonths} mois</span><span class="l">parcours standard, {PRICING.entreprise.minMonths} mois minimum, cadrage et bilan avec vous</span></div>
+      <div class="hero-img">
+        <img src="/images/cloe-dana-atelier.webp" alt="Cloé Dana lors d'une intervention Blocages & Intuition en entreprise" width="1200" height="1600" loading="eager" fetchpriority="high" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" />
       </div>
     </div>
   </section>
@@ -58,9 +60,9 @@ const service = {
       <p class="eyebrow violet">Ce que ça vous coûte</p>
       <h2 style="max-width:22ch">Vos talents les plus stratégiques sont souvent ceux qui sur-adaptent le plus.</h2>
       <div class="grid grid-3" style="margin-top:2.5rem">
-        <div class="card white"><p class="num">Désengagement silencieux</p><p>Elle performe objectivement, mais son énergie s'épuise à maintenir une façade. Vous le voyez tard, souvent quand elle part.</p></div>
-        <div class="card white"><p class="num">Décisions ralenties</p><p>Elle sait qu'elle a de la valeur, mais le doute chronique revient. Il ralentit ses arbitrages et fragilise son leadership.</p></div>
-        <div class="card white"><p class="num">Intuition neutralisée</p><p>Elle a une perception fine des situations, mais ne lui fait plus confiance. Elle sur-rationalise, délègue ses décisions au regard des autres.</p></div>
+        <div class="card white"><Icon name="users" /><p class="num">Désengagement silencieux</p><p>Elle performe objectivement, mais son énergie s'épuise à maintenir une façade. Vous le voyez tard, souvent quand elle part.</p></div>
+        <div class="card white"><Icon name="clock" /><p class="num">Décisions ralenties</p><p>Elle sait qu'elle a de la valeur, mais le doute chronique revient. Il ralentit ses arbitrages et fragilise son leadership.</p></div>
+        <div class="card white"><Icon name="breath" /><p class="num">Intuition neutralisée</p><p>Elle a une perception fine des situations, mais ne lui fait plus confiance. Elle sur-rationalise, délègue ses décisions au regard des autres.</p></div>
       </div>
       <p class="lead" style="margin-top:2.5rem;max-width:720px">Remplacer un profil senior coûte six à neuf mois de salaire. Une puissance diminuée coûte moins visiblement, et plus cher. Cet accompagnement coûte moins qu'un mois de ce que vous perdez déjà.</p>
     </div>
@@ -92,14 +94,14 @@ const service = {
           <span class="badge">Parcours entreprise</span>
           <h3>Accompagnement individuel</h3>
           <p class="price">{PRICING.entreprise.monthly} € <small>HT / mois</small></p>
-          <ul>
-            <li>2 séances individuelles d'1h30 par mois, en présentiel</li>
-            <li>Transcript de chaque séance</li>
-            <li>Exercices personnalisés et lectures entre les séances</li>
-            <li>Cloé joignable sur WhatsApp entre les séances</li>
-            <li>Analyse écrite d'Émilien Dereclenne après chaque séance</li>
-            <li>Cadrage et bilan tripartites</li>
-            <li>Parcours standard de {PRICING.entreprise.standardMonths} mois · {PRICING.entreprise.minMonths} mois minimum · prolongeable</li>
+          <ul class="iconlist">
+            <li><Icon name="calendar" class="violet" /><span>2 séances individuelles d'1h30 par mois, en présentiel</span></li>
+            <li><Icon name="transcript" class="violet" /><span>Transcript de chaque séance</span></li>
+            <li><Icon name="book" class="violet" /><span>Exercices personnalisés et lectures entre les séances</span></li>
+            <li><Icon name="message" class="violet" /><span>Cloé joignable sur WhatsApp entre les séances</span></li>
+            <li><Icon name="pen" class="violet" /><span>Analyse écrite d'Émilien Dereclenne après chaque séance</span></li>
+            <li><Icon name="handshake" class="violet" /><span>Cadrage et bilan tripartites</span></li>
+            <li><Icon name="repeat" class="violet" /><span>Parcours standard de {PRICING.entreprise.standardMonths} mois · {PRICING.entreprise.minMonths} mois minimum · prolongeable</span></li>
           </ul>
           <a href={CALENDAR_URL} class="btn btn-violet" target="_blank" rel="noopener" data-event="rdv_click" data-location="entreprises-pricing">Réserver un échange</a>
         </div>

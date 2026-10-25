@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
 import CTA from '../components/CTA.astro';
 import Faq from '../components/Faq.astro';
 import { FAQ, faqSchema } from '../data/faq';
@@ -28,9 +29,9 @@ const description =
   <section class="tight">
     <div class="wrap">
       <div class="grid grid-3 stats">
-        <div><p class="num">Psychologie · neurosciences · philosophie · corps</p><p>Quatre entrées, un seul objectif : décider depuis soi.</p></div>
-        <div><p class="num">Un regard double</p><p>Une entrepreneure en séance, un philosophe qui relit chaque séance.</p></div>
-        <div><p class="num">En présentiel, à Paris</p><p>Dans vos locaux ou à Kaskad République, 10e.</p></div>
+        <div><Icon name="layers" class="violet lg" /><p class="num">Psychologie · neurosciences · philosophie · corps</p><p>Quatre entrées, un seul objectif : décider depuis soi.</p></div>
+        <div><Icon name="eye" class="violet lg" /><p class="num">Un regard double</p><p>Une entrepreneure en séance, un philosophe qui relit chaque séance.</p></div>
+        <div><Icon name="pin" class="violet lg" /><p class="num">En présentiel, à Paris</p><p>Dans vos locaux ou à Kaskad République, 10e.</p></div>
       </div>
     </div>
   </section>
@@ -41,19 +42,19 @@ const description =
       <h2>Trois raisons <em>d'être ici.</em></h2>
       <div class="grid grid-3" style="margin-top:2.5rem">
         <a class="card white" href="/entreprises/" style="text-decoration:none">
-          <p class="num">Entreprises</p>
+          <Icon name="building" /><p class="num">Entreprises</p>
           <h3>Une dirigeante clé à accompagner</h3>
           <p>Elle performe, elle sur-adapte, elle doute. Vous voulez protéger un profil rare, dans un cadre sérieux.</p>
           <p class="link" style="margin-top:1rem">L'accompagnement 1:1 →</p>
         </a>
         <a class="card white" href="/ateliers/" style="text-decoration:none">
-          <p class="num">Équipes et réseaux</p>
+          <Icon name="users" /><p class="num">Équipes et réseaux</p>
           <h3>Un atelier de deux heures</h3>
           <p>Dix personnes, un thème : la permission, la conformité, le syndrome de l'imposteur, l'intuition.</p>
           <p class="link" style="margin-top:1rem">Les ateliers →</p>
         </a>
         <a class="card white" href="/particulieres/" style="text-decoration:none">
-          <p class="num">À titre personnel</p>
+          <Icon name="user" /><p class="num">À titre personnel</p>
           <h3>Vous, pour vous</h3>
           <p>Dirigeante, fondatrice, cadre : vous vous reconnaissez et vous voulez travailler cela pour de bon.</p>
           <p class="link" style="margin-top:1rem">En savoir plus →</p>
@@ -68,9 +69,9 @@ const description =
       <h2 style="max-width:22ch">Vos blocages ne viennent pas de faiblesses. Ils viennent <em>de réflexes.</em></h2>
       <p class="lead" style="margin-top:1rem;max-width:640px">Des réflexes appris, intelligents, qui ont longtemps protégé. Ils viennent de deux endroits.</p>
       <div class="grid grid-3" style="margin-top:2.5rem">
-        <div><p class="num" style="color:var(--rouge);font-family:var(--font-display);font-weight:700;font-size:.85rem;letter-spacing:.1em;margin-bottom:.6rem">01 · CE QU'ON A APPRIS</p><p>Très tôt, pour être aimée et à sa place. Ne pas déranger. Être irréprochable.</p></div>
-        <div><p class="num" style="color:var(--rouge);font-family:var(--font-display);font-weight:700;font-size:.85rem;letter-spacing:.1em;margin-bottom:.6rem">02 · LES RÈGLES DU JEU</p><p>Chaque milieu a les siennes, implicites, rarement écrites pour vous. Comme aux échecs : tant qu'on ne voit pas les règles, on les subit.</p></div>
-        <div><p class="num" style="color:var(--rouge);font-family:var(--font-display);font-weight:700;font-size:.85rem;letter-spacing:.1em;margin-bottom:.6rem">03 · LE TRAVAIL</p><p>Rendre ces deux choses visibles. Puis changer, concrètement, la façon d'agir. <a href="/methode/" class="link">La méthode</a></p></div>
+        <div class="point"><Icon name="key" class="violet" /><p class="k">01 · Ce qu'on a appris</p><p>Très tôt, pour être aimée et à sa place. Ne pas déranger. Être irréprochable.</p></div>
+        <div class="point"><Icon name="compass" class="violet" /><p class="k">02 · Les règles du jeu</p><p>Chaque milieu a les siennes, implicites, rarement écrites pour vous. Comme aux échecs : tant qu'on ne voit pas les règles, on les subit.</p></div>
+        <div class="point"><Icon name="eye" class="violet" /><p class="k">03 · Le travail</p><p>Rendre ces deux choses visibles. Puis changer, concrètement, la façon d'agir. <a href="/methode/" class="link">La méthode</a></p></div>
       </div>
     </div>
   </section>
@@ -88,7 +89,7 @@ const description =
           "Vous sur-adaptez en permanence, et vous sentez que ça coûte quelque chose d'essentiel.",
           "Vous connaissez vos schémas. Mais comprendre ne suffit pas à déplacer.",
         ].map((t, i) => (
-          <div class="card white"><p class="num n">0{i + 1}</p><p>{t}</p></div>
+          <div class="card white"><p class="num">0{i + 1}</p><p>{t}</p></div>
         ))}
       </div>
     </div>
@@ -133,29 +134,29 @@ const description =
         <div class="price-card featured">
           <span class="badge">Entreprises</span>
           <h3>Accompagnement individuel</h3>
-          <ul>
-            <li>Parcours de 6 mois, 2 séances d'1h30 par mois</li>
-            <li>Exercices, lectures, WhatsApp entre les séances</li>
-            <li>Analyse de chaque séance par Émilien</li>
-            <li>Cadrage et bilan avec l'entreprise</li>
+          <ul class="iconlist">
+            <li><Icon name="calendar" class="violet" /><span>Parcours de 6 mois, 2 séances d'1h30 par mois</span></li>
+            <li><Icon name="message" class="violet" /><span>Exercices, lectures, WhatsApp entre les séances</span></li>
+            <li><Icon name="pen" class="violet" /><span>Analyse de chaque séance par Émilien</span></li>
+            <li><Icon name="handshake" class="violet" /><span>Cadrage et bilan avec l'entreprise</span></li>
           </ul>
           <a href="/entreprises/" class="btn btn-violet">Le parcours et le tarif</a>
         </div>
         <div class="price-card">
           <h3>Atelier en entreprise</h3>
-          <ul>
-            <li>2 heures, 10 personnes maximum</li>
-            <li>Un thème, ou un cycle de trois</li>
-            <li>Chez vous ou à Kaskad République</li>
+          <ul class="iconlist">
+            <li><Icon name="users" class="violet" /><span>2 heures, 10 personnes maximum</span></li>
+            <li><Icon name="repeat" class="violet" /><span>Un thème, ou un cycle de trois</span></li>
+            <li><Icon name="pin" class="violet" /><span>Chez vous ou à Kaskad République</span></li>
           </ul>
           <a href="/ateliers/" class="btn btn-outline">Les thèmes et le tarif</a>
         </div>
         <div class="price-card">
           <h3>À titre personnel</h3>
-          <ul>
-            <li>Le même accompagnement, financé par vous</li>
-            <li>Mensuel, sans engagement</li>
-            <li>Séances d'1h30 à Paris 10e</li>
+          <ul class="iconlist">
+            <li><Icon name="user" class="violet" /><span>Le même accompagnement, financé par vous</span></li>
+            <li><Icon name="repeat" class="violet" /><span>Mensuel, sans engagement</span></li>
+            <li><Icon name="pin" class="violet" /><span>Séances d'1h30 à Paris 10e</span></li>
           </ul>
           <a href="/particulieres/" class="btn btn-outline">En savoir plus</a>
         </div>
@@ -171,9 +172,9 @@ const description =
         <p class="eyebrow">Où, et avec qui déjà</p>
         <h2>À Kaskad République, ou <em>chez vous.</em></h2>
         <p class="lead" style="margin-top:1.25rem">Un lieu de travail et d'accueil cofondé par Cloé, Paris 10e. Toujours en présentiel : c'est là que le corps parle.</p>
-        <ul class="plain" style="margin-top:1.5rem">
-          <li><strong>Covivio</strong>, réseau Ex Æquo : atelier « La permission », octobre 2026</li>
-          <li><strong>Six femmes</strong> accompagnées en individuel depuis mars 2026</li>
+        <ul class="iconlist" style="margin-top:1.5rem">
+          <li><Icon name="building" class="violet" /><span><strong>Covivio</strong>, réseau Ex Æquo : atelier « La permission », octobre 2026</span></li>
+          <li><Icon name="users" class="violet" /><span><strong>Six femmes</strong> accompagnées en individuel depuis mars 2026</span></li>
         </ul>
       </div>
     </div>

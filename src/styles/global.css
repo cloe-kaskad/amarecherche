@@ -316,76 +316,21 @@ ul.plain li::before { content: ''; position: absolute; left: 0; top: 0.6em; widt
   @keyframes faqIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 }
 
-/* ===== Direction artistique : mêmes couleurs partout, des compositions différentes par page ===== */
-/* Le menu indique la page courante dans sa couleur */
-
-/* Grands numéros en italique */
-.card .num.n { font-family: var(--font-accent); font-style: italic; font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--violet); letter-spacing: 0; margin-bottom: 1rem; }
-.step::before { font-family: var(--font-accent); font-style: italic; font-weight: 400; font-size: 2rem; color: var(--violet); }
-
-/* L'esperluette, motif de marque, dans les sections sombres */
-section.dark { position: relative; overflow: hidden; }
-section.dark::before {
-  content: '&'; position: absolute; right: -0.08em; bottom: -0.35em; z-index: 0; pointer-events: none;
-  font-family: var(--font-accent); font-style: italic; font-size: clamp(14rem, 36vw, 32rem); line-height: 1; color: var(--rose); opacity: .14;
-}
-section.dark > .wrap { position: relative; z-index: 1; }
-
-/* Portraits en bichromie dans les sections violettes */
-section.dark img { filter: grayscale(1) contrast(1.05); mix-blend-mode: luminosity; }
-section.dark img:hover { filter: none; mix-blend-mode: normal; }
-
-/* Bandes de titre : un mot géant comme ouverture de section */
-.word-band { font-family: var(--font-accent); font-style: italic; font-size: clamp(3rem, 9vw, 8rem); line-height: .95; color: var(--violet); letter-spacing: -0.02em; }
-
-/* Variantes de hero (une composition par page, même charte) */
-.hero-cover { position: relative; min-height: 78vh; display: flex; align-items: flex-end; padding: 0; overflow: hidden; }
-.hero-cover img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-.hero-cover::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,17,.25) 0%, rgba(17,17,17,.45) 40%, rgba(17,17,17,.85) 100%); }
-.hero-cover .wrap { position: relative; z-index: 1; padding-bottom: clamp(2.5rem, 6vw, 5rem); padding-top: 6rem; }
-.hero-cover h1, .hero-cover .lead, .hero-cover p { color: #fff; }
-.hero-cover h1 em { color: var(--rose); }
-.hero-cover .eyebrow { color: var(--rose); }
-.hero-cover .hero-meta { color: rgba(255,255,255,.75); }
-.hero-cover .btn-outline { color: #fff; border-color: #fff; }
-.hero-cover .btn-outline:hover { background: #fff; color: var(--noir); }
-.hero-cover h1 { max-width: 16ch; }
-.hero-cover .lead { max-width: 560px; }
-
-.hero-center { text-align: center; }
-.hero-center .wrap > * { margin-left: auto; margin-right: auto; }
-.hero-center h1 { max-width: 20ch; }
-.hero-center .lead { max-width: 640px; }
-.hero-center .btn-row, .hero-center .hero-meta { justify-content: center; }
-
-.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; border-top: 2px solid var(--noir); border-bottom: 2px solid var(--noir); padding: 1.5rem 0; }
-.kpis > div { display: flex; flex-direction: column; gap: .25rem; }
-.kpis .k { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.8rem, 3.4vw, 2.6rem); line-height: 1; }
-.kpis .l { color: var(--gris); font-size: .9rem; }
-@media (max-width: 640px) { .kpis { grid-template-columns: 1fr; } }
-
-.photo-band { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: center 60%; }
-@media (max-width: 640px) { .photo-band { aspect-ratio: 4 / 3; } }
-
-/* Tuiles-mots (ateliers) */
-.word-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.word-tile { background: var(--blanc); border-radius: 6px; padding: 2rem 1.75rem; min-height: 260px; display: flex; flex-direction: column; justify-content: flex-end; gap: .75rem; }
-.word-tile:nth-child(2n) { background: var(--violet); color: var(--creme); }
-.word-tile:nth-child(2n) p { color: var(--creme); }
-.word-tile h3 { font-family: var(--font-accent); font-style: italic; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: 0; }
-.word-tile:nth-child(2n) h3 { color: var(--rose); }
-.word-tile p { font-size: .95rem; }
-@media (max-width: 900px) { .word-tiles { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px) { .word-tiles { grid-template-columns: 1fr; } }
-
-/* Équipe : deux portraits en ouverture */
-.portraits { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem; }
-.portraits figure { position: relative; border-radius: 8px; overflow: hidden; aspect-ratio: 4 / 5; }
-.portraits img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
-.portraits figcaption { position: absolute; left: 1.25rem; bottom: 1.25rem; right: 1.25rem; background: rgba(245,237,227,.92); padding: .8rem 1rem; border-radius: 4px; }
-.portraits figcaption strong { font-family: var(--font-display); display: block; }
-.portraits figcaption span { font-size: .85rem; color: var(--gris); }
-@media (max-width: 640px) { .portraits { grid-template-columns: 1fr; } }
-.hero-split.reverse { grid-template-columns: .85fr 1.15fr; }
-.hero-split.reverse .hero-img { order: -1; }
-@media (max-width: 900px) { .hero-split.reverse { grid-template-columns: 1fr; } }
+/* Icônes : trait fin, couleur de marque, jamais décoratives sans sens */
+.ico { width: 1.6rem; height: 1.6rem; flex: 0 0 auto; color: var(--rouge); }
+.ico.violet { color: var(--violet); }
+.ico.lg { width: 2.2rem; height: 2.2rem; }
+.card .ico { margin-bottom: 1rem; display: block; }
+.iconlist { list-style: none; display: grid; gap: .8rem; }
+.iconlist li { display: flex; gap: .75rem; align-items: flex-start; }
+.iconlist .ico { width: 1.35rem; height: 1.35rem; margin-top: .15rem; }
+.price-card ul.iconlist li { padding-left: 0; }
+.price-card ul.iconlist li::before { display: none; }
+.hero-meta span { display: inline-flex; align-items: center; gap: .45rem; }
+.hero-meta .ico { width: 1.1rem; height: 1.1rem; color: var(--violet); }
+.stats .ico { margin-bottom: .6rem; }
+.point { display: grid; gap: .5rem; }
+.point .ico { width: 2rem; height: 2rem; }
+.point .k { font-family: var(--font-display); font-weight: 700; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; color: var(--rouge); }
+.point p + p { margin-top: 0; }
+.point .k { margin: 0; }

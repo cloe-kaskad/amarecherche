@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
 import CTA from '../components/CTA.astro';
 import Faq from '../components/Faq.astro';
 import { FAQ, faqSchema } from '../data/faq';
@@ -20,7 +21,7 @@ const service = {
 ---
 <Base title={title} description={description} schema={[service, faqSchema(faq)]}>
   <section class="hero">
-    <div class="wrap split hero-split reverse">
+    <div class="wrap split hero-split">
       <div>
         <p class="eyebrow">À titre personnel</p>
         <h1>Vous réussissez, mais vous vous sentez opératoire plutôt <em>que vivante.</em></h1>
@@ -29,9 +30,9 @@ const service = {
           <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="perso-hero">Réserver un échange</a>
         </div>
         <div class="hero-meta">
-          <span>{PRICING.perso.monthly} € / mois, sans engagement</span>
-          <span>Présentiel, Paris 10e</span>
-          <span>Premier échange offert</span>
+          <span><Icon name="euro" />{PRICING.perso.monthly} € / mois, sans engagement</span>
+          <span><Icon name="pin" />Présentiel, Paris 10e</span>
+          <span><Icon name="message" />Premier échange offert</span>
         </div>
       </div>
       <div class="hero-img">
@@ -62,12 +63,12 @@ const service = {
           <span class="badge">Particulières</span>
           <h3>Abonnement mensuel</h3>
           <p class="price">{PRICING.perso.monthly} € <small>/ mois · sans engagement</small></p>
-          <ul>
-            <li>Séances individuelles d'1h30 en présentiel, Paris 10e</li>
-            <li>Transcript, exercices personnalisés et lectures</li>
-            <li>Cloé joignable sur WhatsApp entre les séances</li>
-            <li>Analyse écrite d'Émilien après chaque séance</li>
-            <li>Vous arrêtez quand vous voulez</li>
+          <ul class="iconlist">
+            <li><Icon name="pin" class="violet" /><span>Séances individuelles d'1h30 en présentiel, Paris 10e</span></li>
+            <li><Icon name="book" class="violet" /><span>Transcript, exercices personnalisés et lectures</span></li>
+            <li><Icon name="message" class="violet" /><span>Cloé joignable sur WhatsApp entre les séances</span></li>
+            <li><Icon name="pen" class="violet" /><span>Analyse écrite d'Émilien après chaque séance</span></li>
+            <li><Icon name="repeat" class="violet" /><span>Vous arrêtez quand vous voulez</span></li>
           </ul>
           <a href={CALENDAR_URL} class="btn btn-violet" target="_blank" rel="noopener" data-event="rdv_click" data-location="perso-pricing">Réserver la séance découverte</a>
         </div>
