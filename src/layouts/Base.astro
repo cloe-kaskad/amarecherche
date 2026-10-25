@@ -187,6 +187,20 @@ const nav = [
         document.getElementById('consent-no').onclick = function(){ set('no'); };
         var t = document.querySelector('.nav-toggle'), l = document.getElementById('nav-links');
         t.onclick = function(){ var o = l.classList.toggle('open'); t.setAttribute('aria-expanded', o); };
+
+        // Apparition progressive des blocs au scroll (décalage en cascade dans les grilles)
+        var targets = [];
+        document.querySelectorAll('main section').forEach(function(sec){
+          sec.querySelectorAll(':scope > .wrap > *, :scope > .wrap > .split > *, :scope > .wrap > .hero-grid > *').forEach(function(el){ if (!el.matches('.grid, .steps, .faq, .article-list')) targets.push(el); });
+          sec.querySelectorAll('.grid > *, .steps > *, .faq > details, .article-list > *').forEach(function(el, i){ el.style.setProperty('--d', Math.min(i, 8) * 90 + 'ms'); targets.push(el); });
+        });
+        targets.forEach(function(el){ el.classList.add('reveal'); });
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+          }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+          targets.forEach(function(el){ io.observe(el); });
+        } else { targets.forEach(function(el){ el.classList.add('in'); }); }
       })();
     </script>
   </body>
