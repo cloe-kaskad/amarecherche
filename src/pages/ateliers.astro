@@ -38,39 +38,33 @@ const service = {
   ],
 };
 ---
-<Base title={title} description={description} theme="rose" mark="Ateliers" schema={[service, faqSchema(faq)]}>
-  <section class="hero">
-    <div class="wrap split hero-split">
-      <div>
-        <p class="eyebrow">Entreprises · Ateliers collectifs</p>
-        <h1>Deux heures, dix personnes, un sujet qu'on <em>n'aborde jamais.</em></h1>
-        <p class="lead">
-          Un atelier Blocages & Intuition ne donne pas des techniques. Il rend visible ce qui, chez vos talents, génère le doute, la sur-adaptation et le silence en réunion. Et il leur donne, avec le corps autant qu'avec la tête, une première façon de faire autrement.
-        </p>
-        <div class="btn-row">
-          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="ateliers-hero">Organiser un atelier</a>
-          <a href="#themes" class="btn btn-outline">Voir les thèmes</a>
-        </div>
-        <div class="hero-meta">
-          <span>À partir de {PRICING.atelier.single.toLocaleString('fr-FR')} € HT</span>
-          <span>Chez vous ou à Kaskad République</span>
-          <span>10 personnes max</span>
-        </div>
+<Base title={title} description={description} schema={[service, faqSchema(faq)]}>
+  <section class="hero hero-center" style="padding-bottom:3rem">
+    <div class="wrap">
+      <p class="eyebrow">Entreprises · Ateliers collectifs</p>
+      <h1>Deux heures, dix personnes, un sujet qu'on <em>n'aborde jamais.</em></h1>
+      <p class="lead">Un atelier Blocages & Intuition ne donne pas des techniques. Il rend visible ce qui, chez vos talents, génère le doute, la sur-adaptation et le silence en réunion. Et il leur donne, avec le corps autant qu'avec la tête, une première façon de faire autrement.</p>
+      <div class="btn-row">
+        <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="ateliers-hero">Organiser un atelier</a>
+        <a href="#themes" class="btn btn-outline">Voir les thèmes</a>
       </div>
-      <div class="hero-img">
-        <img src="/images/atelier-blocages-intuition-kaskad.webp" alt="Atelier Blocages & Intuition animé par Cloé Dana à Kaskad République" width="1600" height="1200" loading="eager" fetchpriority="high" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover" />
+      <div class="hero-meta">
+        <span>À partir de {PRICING.atelier.single.toLocaleString('fr-FR')} € HT</span>
+        <span>Chez vous ou à Kaskad République</span>
+        <span>10 personnes max</span>
       </div>
     </div>
   </section>
+  <img src="/images/atelier-blocages-intuition-kaskad.webp" alt="Atelier Blocages & Intuition animé par Cloé Dana à Kaskad République" width="1600" height="1200" loading="eager" fetchpriority="high" class="photo-band" />
 
   <section class="alt" id="themes">
     <div class="wrap">
       <p class="eyebrow violet">Les thèmes</p>
       <h2>Un mot, <em>un atelier.</em></h2>
       <p class="lead" style="margin-top:1rem;max-width:720px">Chaque atelier part d'un seul thème, choisi avec vous (ou par sondage auprès des participantes, comme chez Covivio). Les thèmes se combinent en cycle de trois.</p>
-      <div class="grid grid-3" style="margin-top:2.5rem">
-        {themes.map((th, i) => (
-          <div class="card white"><p class="num n">0{i + 1}</p><h3>{th.t}</h3><p>{th.d}</p></div>
+      <div class="word-tiles" style="margin-top:2.5rem">
+        {themes.map((th) => (
+          <div class="word-tile"><h3>{th.t}</h3><p>{th.d}</p></div>
         ))}
       </div>
     </div>

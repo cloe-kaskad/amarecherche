@@ -18,9 +18,9 @@ const service = {
   offers: { '@type': 'Offer', price: PRICING.perso.monthly, priceCurrency: 'EUR', priceSpecification: { '@type': 'UnitPriceSpecification', price: PRICING.perso.monthly, priceCurrency: 'EUR', unitText: 'mois' }, url: 'https://amarecherche.fr/particulieres/' },
 };
 ---
-<Base title={title} description={description} theme="ciel" mark="Vous" schema={[service, faqSchema(faq)]}>
+<Base title={title} description={description} schema={[service, faqSchema(faq)]}>
   <section class="hero">
-    <div class="wrap split hero-split">
+    <div class="wrap split hero-split reverse">
       <div>
         <p class="eyebrow">À titre personnel</p>
         <h1>Vous réussissez, mais vous vous sentez opératoire plutôt <em>que vivante.</em></h1>
