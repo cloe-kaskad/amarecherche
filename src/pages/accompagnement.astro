@@ -1,0 +1,157 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import CTA from '../components/CTA.astro';
+import Faq from '../components/Faq.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { FAQ, faqSchema } from '../data/faq';
+import { CALENDAR_URL, PRICING } from '../site';
+
+const faq = FAQ.filter((f) => f.tags.includes('entreprises') || f.tags.includes('particulieres'));
+const title = "Accompagnement individuel de dirigeantes et femmes cadres | Blocages & Intuition, Paris";
+const description =
+  "Accompagnement 1:1 pour dirigeantes, fondatrices et cadres clés : 2 séances d'1h30 par mois en présentiel, exercices, lectures, WhatsApp, analyse d'Émilien Dereclenne. Financé par l'entreprise (600 € HT/mois, parcours 6 mois) ou à titre personnel (400 €/mois, sans engagement). Paris.";
+const services = [
+  {
+    '@context': 'https://schema.org', '@type': 'Service',
+    name: 'Accompagnement individuel financé par l\'entreprise', serviceType: 'Executive coaching',
+    provider: { '@id': 'https://amarecherche.fr/#organization' }, areaServed: { '@type': 'City', name: 'Paris' },
+    audience: { '@type': 'BusinessAudience', name: 'Entreprises, DRH, dirigeants' }, description,
+    offers: { '@type': 'Offer', price: PRICING.entreprise.monthly, priceCurrency: 'EUR', priceSpecification: { '@type': 'UnitPriceSpecification', price: PRICING.entreprise.monthly, priceCurrency: 'EUR', unitText: 'mois HT', valueAddedTaxIncluded: false }, url: 'https://amarecherche.fr/accompagnement/' },
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'Service',
+    name: 'Accompagnement individuel à titre personnel',
+    provider: { '@id': 'https://amarecherche.fr/#organization' }, areaServed: { '@type': 'City', name: 'Paris' }, description,
+    offers: { '@type': 'Offer', price: PRICING.perso.monthly, priceCurrency: 'EUR', priceSpecification: { '@type': 'UnitPriceSpecification', price: PRICING.perso.monthly, priceCurrency: 'EUR', unitText: 'mois' }, url: 'https://amarecherche.fr/accompagnement/#personnel' },
+  },
+];
+---
+<Base title={title} description={description} schema={[...services, faqSchema(faq)]}>
+  <section class="hero">
+    <div class="wrap split hero-split">
+      <div>
+        <p class="eyebrow">Accompagnement individuel</p>
+        <h1>Vous réussissez, mais vous opérez en dessous de votre <em>puissance réelle.</em></h1>
+        <p class="lead">
+          Dirigeante, fondatrice, cadre clé : vous performez, vous vous adaptez, vous tenez. Et ça se paie, en doute, en décisions retardées, en énergie. Cet accompagnement travaille sur ce qui génère ces comportements, pas seulement sur les comportements. Financé par votre entreprise, ou par vous.
+        </p>
+        <div class="btn-row">
+          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="acc-hero">Réserver un échange</a>
+          <a href="#tarifs" class="btn btn-outline">Les deux formules</a>
+        </div>
+        <div class="hero-meta">
+          <span><Icon name="calendar" />2 séances d'1h30 par mois</span>
+          <span><Icon name="pin" />Présentiel, Paris 10e ou dans l'entreprise</span>
+          <span><Icon name="lock" />Strictement confidentiel</span>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="/images/cloe-dana-atelier.webp" alt="Cloé Dana, Blocages & Intuition" width="1200" height="1600" loading="eager" fetchpriority="high" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow violet">Pour qui</p>
+      <h2 style="max-width:22ch">Les talents les plus stratégiques sont souvent ceux qui sur-adaptent le plus.</h2>
+      <div class="grid grid-3" style="margin-top:2.5rem">
+        <div class="card white"><p class="num">La façade qui épuise</p><p>Vous performez objectivement, mais votre énergie part dans la façade plutôt que dans l'avancée. Vu de l'entreprise : un désengagement silencieux, repéré tard.</p></div>
+        <div class="card white"><p class="num">Le doute qui ralentit</p><p>Vous savez que vous avez de la valeur. Le doute revient quand même, ralentit vos arbitrages et fragilise votre leadership.</p></div>
+        <div class="card white"><p class="num">L'intuition mise de côté</p><p>Vous percevez finement les situations, mais vous ne vous faites plus confiance. Vous sur-rationalisez, vous déléguez vos décisions au regard des autres.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow">Le parcours</p>
+        <h2>Quelques mois pour que l'énergie aille au <em>bon endroit.</em></h2>
+        <p class="lead" style="margin-top:1.25rem">Un schéma appris sur des années ne se déplace pas en une séance. Le parcours est pensé pour que le travail tienne dans la durée.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div><h3>Une séance découverte offerte</h3><p>Trente minutes en visio. On dresse le paysage, et on voit ensemble si ça a du sens de continuer. Si quelque chose relève du soin, Cloé vous le dira.</p></div></div>
+        <div class="step"><div><h3>Deux séances d'1h30 par mois</h3><p>En présentiel, à Kaskad République (Paris 10e) ou dans votre entreprise. Chaque séance part de ce que vous vivez maintenant, pas d'une méthode plaquée. Elle est enregistrée et retranscrite pour vous.</p></div></div>
+        <div class="step"><div><h3>Entre les séances</h3><p>Un à deux exercices à vivre dans la vraie vie, une lecture choisie, et Cloé joignable sur WhatsApp. C'est souvent là que les choses bougent.</p></div></div>
+        <div class="step"><div><h3>Le regard d'Émilien</h3><p>Émilien Dereclenne lit chaque transcript et produit une analyse écrite : les tensions de fond, les mécanismes en jeu, les points précis sur lesquels déplacer l'effort. Vous ne le verrez pas. Vous repartirez avec sa lecture.</p></div></div>
+        <div class="step"><div><h3>Un bilan</h3><p>Ce qui a bougé, ce qui reste à tenir, et si une suite a du sens. Avec votre entreprise si elle finance, toujours sans le contenu des séances.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="tarifs">
+    <div class="wrap">
+      <p class="eyebrow violet">Deux formules</p>
+      <h2>Le même travail de fond, <em>deux cadres.</em></h2>
+      <p class="lead" style="margin-top:1rem;max-width:720px">Le contenu des séances est identique. Ce qui change : qui finance, le rythme garanti, et la présence ou non d'un cadrage avec l'entreprise.</p>
+      <div class="grid grid-2" style="margin-top:2.5rem;align-items:start">
+        <div class="price-card featured" id="entreprise">
+          <span class="badge">Financé par l'entreprise</span>
+          <h3>Parcours entreprise</h3>
+          <p class="price">{PRICING.entreprise.monthly} € <small>HT / mois</small></p>
+          <ul class="iconlist">
+            <li><Icon name="calendar" class="violet" /><span>2 séances individuelles d'1h30 par mois, garanties</span></li>
+            <li><Icon name="transcript" class="violet" /><span>Transcript, exercices personnalisés et lectures</span></li>
+            <li><Icon name="message" class="violet" /><span>Cloé joignable sur WhatsApp entre les séances</span></li>
+            <li><Icon name="pen" class="violet" /><span>Analyse écrite d'Émilien après chaque séance</span></li>
+            <li><Icon name="handshake" class="violet" /><span>Cadrage et bilan avec l'entreprise, sans le contenu des séances</span></li>
+            <li><Icon name="repeat" class="violet" /><span>Parcours de {PRICING.entreprise.standardMonths} mois, {PRICING.entreprise.minMonths} mois minimum, prolongeable</span></li>
+            <li><Icon name="building" class="violet" /><span>Facturation à l'entreprise, dans vos locaux ou à Paris 10e</span></li>
+          </ul>
+          <a href={CALENDAR_URL} class="btn btn-violet" target="_blank" rel="noopener" data-event="rdv_click" data-location="acc-pricing-entreprise">Réserver un échange</a>
+        </div>
+        <div class="price-card" id="personnel">
+          <span class="badge" style="background:var(--rouge)">À titre personnel</span>
+          <h3>Abonnement personnel</h3>
+          <p class="price">{PRICING.perso.monthly} € <small>/ mois · sans engagement</small></p>
+          <ul class="iconlist">
+            <li><Icon name="calendar" class="violet" /><span>Séances d'1h30, au rythme que vous choisissez</span></li>
+            <li><Icon name="transcript" class="violet" /><span>Transcript, exercices personnalisés et lectures</span></li>
+            <li><Icon name="message" class="violet" /><span>Cloé joignable sur WhatsApp entre les séances</span></li>
+            <li><Icon name="pen" class="violet" /><span>Analyse écrite d'Émilien après chaque séance</span></li>
+            <li><Icon name="pin" class="violet" /><span>À Kaskad République, Paris 10e</span></li>
+            <li><Icon name="repeat" class="violet" /><span>Vous arrêtez quand vous voulez</span></li>
+          </ul>
+          <a href={CALENDAR_URL} class="btn btn-outline" target="_blank" rel="noopener" data-event="rdv_click" data-location="acc-pricing-perso">Réserver la séance découverte</a>
+        </div>
+      </div>
+      <p class="small muted" style="margin-top:1.5rem">Vous êtes fondatrice ou dirigeante de votre société ? Elle peut financer le parcours entreprise. On en parle lors du premier échange.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <img src="/images/kaskad-republique-verriere.webp" alt="La verrière de Kaskad République, Paris 10e" width="1200" height="1600" loading="lazy" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" />
+      <div>
+        <p class="eyebrow">Côté entreprise</p>
+        <h2>Ce que votre entreprise <em>y gagne.</em></h2>
+        <p class="lead" style="margin-top:1.25rem">Remplacer un profil senior coûte six à neuf mois de salaire. Une puissance diminuée coûte moins visiblement, et plus cher. Cet accompagnement coûte moins qu'un mois de ce que vous perdez déjà.</p>
+        <p style="margin-top:1rem"><strong>Déjà en entreprise :</strong> atelier « La permission » pour le réseau Ex Æquo de Covivio, octobre 2026. Six femmes accompagnées en individuel depuis mars 2026.</p>
+        <p style="margin-top:1rem"><a href="/ateliers/" class="link">Découvrir les ateliers collectifs</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="presentation">
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow violet">La présentation</p>
+        <h2>Recevez le programme <em>en PDF.</em></h2>
+        <p class="lead" style="margin-top:1.25rem">La méthode, les quatre leviers d'intervention, le format, l'équipe et les tarifs, à lire tranquillement ou à partager en interne. Réponse sous 48h, aucune newsletter sans votre accord.</p>
+      </div>
+      <LeadForm context="accompagnement" />
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <p class="eyebrow">Questions fréquentes</p>
+      <h2 style="margin-bottom:2rem">Avant de <em>commencer.</em></h2>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <CTA location="acc-bottom" title="Parlons de vous, ou de la personne que vous avez <em>en tête.</em>" text="Trente minutes en visio pour comprendre la situation, ce qui coûte, et vous dire si ce parcours est fait pour ça. Sans engagement, et sans jargon." secondary={null} />
+</Base>
