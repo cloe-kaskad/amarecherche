@@ -282,12 +282,11 @@ ul.plain { list-style: none; display: grid; gap: 0.6rem; }
 ul.plain li { padding-left: 1.2rem; position: relative; }
 ul.plain li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 0.5rem; height: 0.5rem; background: var(--rouge); border-radius: 50%; }
 
-/* Brand title on home */
-.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 4rem; align-items: center; }
+/* Home hero */
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.hero-title { font-size: clamp(2.2rem, 4vw, 3.2rem); max-width: none; }
+.hero-grid .btn-row { flex-wrap: nowrap; }
+@media (max-width: 480px) { .hero-grid .btn-row { flex-wrap: wrap; } }
 .hero-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 60% 70%; border-radius: 8px; }
-.brand-title { display: flex; flex-direction: column; line-height: 1; }
-.brand-title .b1 { font-size: clamp(3.2rem, 7vw, 5.6rem); color: var(--violet); letter-spacing: -0.03em; }
-.brand-title .b2 { font-size: clamp(1.3rem, 3vw, 2.3rem); color: var(--rouge); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 0.8rem; }
-.baseline { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 600; max-width: 20ch; margin-top: 2.25rem; }
-.hero .lead { max-width: 30rem; margin-top: 1.25rem; }
+.hero .lead { max-width: 32rem; margin-top: 1.5rem; }
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; } .hero-photo { aspect-ratio: 4 / 3; } }
