@@ -11,19 +11,18 @@ const description =
   "Accompagnement individuel en entreprise et ateliers pour des femmes qui réussissent mais à qui cela coûte : syndrome de l'imposteur, sur-adaptation, intuition. Psychologie, neurosciences, philosophie et corps. Paris 10e.";
 ---
 <Base title={title} description={description} schema={faqSchema(faq)}>
-  <section class="hero" style="padding-bottom:0">
-    <div class="wrap">
-      <p class="eyebrow">Dirigeantes · Entreprises · Paris</p>
-      <h1 class="brand-title"><span class="b1">blocages</span><span class="b2">&amp; intuition</span></h1>
-      <h2 class="baseline">L'accompagnement des femmes qui réussissent, <em>et à qui ça coûte.</em></h2>
-      <p class="lead" style="max-width:600px">Le doute qui revient, l'adaptation permanente, l'intuition qu'on n'écoute plus. Un travail de fond, en entreprise ou à titre personnel. Pas un coaching de plus.</p>
-      <div class="btn-row">
-        <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="hero">Réserver un échange</a>
-        <a href="/entreprises/" class="btn btn-outline">L'offre entreprises</a>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="brand-title"><span class="b1">blocages</span><span class="b2">&amp; intuition</span></h1>
+        <h2 class="baseline">Pour les femmes qui opèrent <em>en dessous de leur puissance.</em></h2>
+        <p class="lead">Parce qu'elles sur-adaptent. Un accompagnement de fond pour dirigeantes et cadres clés, en entreprise ou à titre personnel. À Paris.</p>
+        <div class="btn-row">
+          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="hero">Réserver un échange</a>
+          <a href="/entreprises/" class="btn btn-outline">L'offre entreprises</a>
+        </div>
       </div>
-    </div>
-    <div class="wrap" style="margin-top:3rem">
-      <img src="/images/atelier-blocages-intuition-kaskad.webp" alt="Dirigeantes et cadres lors d'un atelier Blocages & Intuition animé par Cloé Dana à Kaskad République, Paris" width="1600" height="1200" loading="eager" fetchpriority="high" class="hero-band" />
+      <img src="/images/atelier-blocages-intuition-kaskad.webp" alt="Dirigeantes et cadres lors d'un atelier Blocages & Intuition animé par Cloé Dana à Kaskad République, Paris" width="1600" height="1200" loading="eager" fetchpriority="high" class="hero-photo" />
     </div>
   </section>
 
