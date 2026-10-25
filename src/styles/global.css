@@ -279,3 +279,9 @@ footer .logo .l1 { color: #fff; } footer .logo .l2 { color: var(--rouge); }
 ul.plain { list-style: none; display: grid; gap: 0.6rem; }
 ul.plain li { padding-left: 1.2rem; position: relative; }
 ul.plain li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 0.5rem; height: 0.5rem; background: var(--rouge); border-radius: 50%; }
+
+/* Brand title on home */
+.brand-title { display: flex; flex-direction: column; line-height: 0.85; margin-top: .5rem; }
+.brand-title .b1 { font-size: clamp(3.6rem, 10vw, 7.5rem); color: var(--violet); letter-spacing: -0.03em; }
+.brand-title .b2 { font-size: clamp(1.6rem, 4.4vw, 3.3rem); color: var(--rouge); letter-spacing: 0.18em; text-transform: uppercase; margin-top: .35rem; }
+.baseline { font-size: clamp(1.5rem, 3vw, 2.3rem); font-weight: 600; max-width: 22ch; margin-top: 2rem; }
