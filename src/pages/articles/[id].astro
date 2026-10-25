@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import CTA from '../../components/CTA.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  const posts = await getCollection('articles', ({ data }) => !data.draft);
+  return posts.map((p) => ({ params: { id: p.id }, props: { post: p } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = (d: Date) => d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+const authorId = post.data.author === 'Cloé Dana' ? 'cloe-dana' : 'emilien-dereclenne';
+const schema = {
+  '@context': 'https://schema.org', '@type': 'Article',
+  headline: post.data.title, description: post.data.description,
+  datePublished: post.data.date.toISOString(), inLanguage: 'fr-FR',
+  author: { '@type': 'Person', name: post.data.author, '@id': `https://amarecherche.fr/equipe/#${authorId}` },
+  publisher: { '@id': 'https://amarecherche.fr/#organization' },
+  mainEntityOfPage: `https://amarecherche.fr/articles/${post.id}/`,
+};
+---
+<Base title={`${post.data.title} | Blocages & Intuition`} description={post.data.description} schema={schema}>
+  <section class="hero tight">
+    <div class="wrap article">
+      <p class="eyebrow"><a href="/articles/" style="text-decoration:none;color:inherit">Articles</a></p>
+      <h1>{post.data.title}</h1>
+      <p class="meta">{fmt(post.data.date)} · {post.data.author}</p>
+      <p class="lead">{post.data.description}</p>
+    </div>
+  </section>
+  <section class="tight" style="padding-top:0">
+    <div class="wrap article"><Content /></div>
+  </section>
+  <CTA location="article-bottom" />
+</Base>

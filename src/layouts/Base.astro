@@ -1,0 +1,188 @@
+---
+import '../styles/global.css';
+import { SITE, CALENDAR_URL } from '../site';
+
+interface Props {
+  title: string;
+  description: string;
+  schema?: object | object[];
+  ogImage?: string;
+  noindex?: boolean;
+}
+const { title, description, schema, ogImage = '/images/og-blocages-intuition.png', noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const path = Astro.url.pathname;
+
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': 'https://amarecherche.fr/#organization',
+  name: 'Blocages & Intuition',
+  alternateName: 'À ma recherche',
+  url: 'https://amarecherche.fr/',
+  logo: 'https://amarecherche.fr/images/og-blocages-intuition.png',
+  description:
+    "Accompagnement individuel et ateliers pour dirigeantes et femmes cadres clés : syndrome de l'imposteur, sur-adaptation, intuition dans la décision. Psychologie, neurosciences, philosophie et corps. Paris.",
+  areaServed: { '@type': 'City', name: 'Paris' },
+  address: { '@type': 'PostalAddress', addressLocality: 'Paris', postalCode: '75010', addressCountry: 'FR' },
+  founder: { '@id': 'https://amarecherche.fr/equipe/#cloe-dana' },
+  employee: [{ '@id': 'https://amarecherche.fr/equipe/#cloe-dana' }, { '@id': 'https://amarecherche.fr/equipe/#emilien-dereclenne' }],
+  sameAs: [SITE.linkedinCloe, SITE.linkedinCompany].filter(Boolean),
+  knowsAbout: ["syndrome de l'imposteur", 'coaching de dirigeantes', 'leadership féminin', 'intuition et décision', 'sur-adaptation', 'puissance d\'agir'],
+};
+const schemas = [org, ...(Array.isArray(schema) ? schema : schema ? [schema] : [])];
+
+const nav = [
+  { href: '/entreprises/', label: 'Entreprises' },
+  { href: '/ateliers/', label: 'Ateliers' },
+  { href: '/methode/', label: 'Méthode' },
+  { href: '/equipe/', label: 'Équipe' },
+  { href: '/articles/', label: 'Articles' },
+];
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Blocages & Intuition" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#F5EDE3" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&family=Playfair+Display:ital,wght@1,400&display=swap"
+      rel="stylesheet"
+    />
+    {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+
+    <script is:inline define:vars={{ GA_ID: SITE.gaId }}>
+      // Consentement + GA4. GA n'est chargé qu'après acceptation (CNIL).
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      window.__bi = { consent: null };
+      try { window.__bi.consent = localStorage.getItem('bi_consent'); } catch (e) {}
+      function loadGA() {
+        if (window.__bi.loaded) return;
+        window.__bi.loaded = true;
+        var s = document.createElement('script');
+        s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', GA_ID, { anonymize_ip: true });
+      }
+      window.__bi.loadGA = loadGA;
+      if (window.__bi.consent === 'yes') loadGA();
+      // Événements de conversion sur les CTA (data-event="rdv_click" data-location="hero")
+      document.addEventListener('click', function (e) {
+        var el = e.target.closest('[data-event]');
+        if (!el) return;
+        gtag('event', el.getAttribute('data-event'), {
+          location: el.getAttribute('data-location') || '',
+          page: location.pathname,
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a href="/" class="logo" aria-label="Blocages & Intuition, accueil">
+          <span class="l1">blocages</span>
+          <span class="l2">&amp; intuition</span>
+        </a>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="nav-links">
+          {nav.map((n) => (
+            <a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a>
+          ))}
+          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="nav">Réserver un échange</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <a href="/" class="logo"><span class="l1">blocages</span><span class="l2">&amp; intuition</span></a>
+            <p style="margin-top:1rem;max-width:34ch">
+              Accompagnement de dirigeantes et de femmes cadres clés. Psychologie, neurosciences, philosophie, et le corps. Paris 10e.
+            </p>
+            <p class="small" style="margin-top:1rem">Un projet de l'univers <a href="https://libertecherie.paris" rel="noopener">Liberté, Chérie !</a></p>
+          </div>
+          <div>
+            <h4>Offres</h4>
+            <ul>
+              <li><a href="/entreprises/">Accompagnement 1:1 en entreprise</a></li>
+              <li><a href="/ateliers/">Ateliers en entreprise</a></li>
+              <li><a href="/particulieres/">À titre personnel</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Comprendre</h4>
+            <ul>
+              <li><a href="/methode/">La méthode</a></li>
+              <li><a href="/equipe/">L'équipe</a></li>
+              <li><a href="/faq/">Questions fréquentes</a></li>
+              <li><a href="/articles/">Articles</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <ul>
+              <li><a href={CALENDAR_URL} target="_blank" rel="noopener" data-event="rdv_click" data-location="footer">Réserver un échange</a></li>
+              <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+              <li><a href={SITE.linkedinCloe} target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="foot-bottom">
+          <span>© {new Date().getFullYear()} Blocages & Intuition · Cloé Dana & Émilien Dereclenne</span>
+          <span><a href="/mentions-legales/">Mentions légales</a> · <a href="/confidentialite/">Confidentialité</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <div class="consent" id="consent" role="dialog" aria-live="polite">
+      <span>Ce site mesure son audience avec Google Analytics. Vous pouvez accepter ou refuser. <a href="/confidentialite/">En savoir plus</a></span>
+      <span style="display:flex;gap:.5rem">
+        <button class="btn btn-outline" id="consent-no" type="button" style="color:#fff;border-color:#fff">Refuser</button>
+        <button class="btn btn-primary" id="consent-yes" type="button">Accepter</button>
+      </span>
+    </div>
+
+    <script is:inline>
+      (function(){
+        var c = document.getElementById('consent');
+        if (!window.__bi.consent) c.classList.add('show');
+        function set(v){ try { localStorage.setItem('bi_consent', v); } catch(e){} window.__bi.consent = v; c.classList.remove('show'); if (v==='yes') window.__bi.loadGA(); }
+        document.getElementById('consent-yes').onclick = function(){ set('yes'); };
+        document.getElementById('consent-no').onclick = function(){ set('no'); };
+        var t = document.querySelector('.nav-toggle'), l = document.getElementById('nav-links');
+        t.onclick = function(){ var o = l.classList.toggle('open'); t.setAttribute('aria-expanded', o); };
+      })();
+    </script>
+  </body>
+</html>

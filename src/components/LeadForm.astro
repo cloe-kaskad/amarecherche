@@ -1,0 +1,32 @@
+---
+// Formulaire Netlify Forms : les leads arrivent dans Netlify > Forms, avec notification email.
+interface Props { context?: string }
+const { context = 'entreprises' } = Astro.props;
+---
+<form name="presentation-entreprise" method="POST" action="/merci/" data-netlify="true" netlify-honeypot="site-web" class="form">
+  <input type="hidden" name="form-name" value="presentation-entreprise" />
+  <input type="hidden" name="contexte" value={context} />
+  <input type="hidden" name="utm_source" id="f-utm-source" />
+  <input type="hidden" name="utm_medium" id="f-utm-medium" />
+  <input type="hidden" name="utm_campaign" id="f-utm-campaign" />
+  <p class="sr-only"><label>Ne pas remplir : <input name="site-web" /></label></p>
+  <label>Prénom et nom <input type="text" name="nom" required autocomplete="name" /></label>
+  <label>Email professionnel <input type="email" name="email" required autocomplete="email" /></label>
+  <label>Entreprise et fonction <input type="text" name="entreprise" placeholder="Ex. : DRH, Covivio" autocomplete="organization" /></label>
+  <label>Ce qui vous amène (facultatif) <textarea name="message" rows="3" placeholder="Une dirigeante à accompagner, un atelier pour une équipe, une question…"></textarea></label>
+  <label class="check"><input type="checkbox" name="consentement" required /> <span>J'accepte d'être recontacté·e par Blocages & Intuition au sujet de cette demande. Aucune newsletter sans votre accord.</span></label>
+  <div>
+    <button type="submit" class="btn btn-violet" data-event="lead_submit" data-location={context}>Recevoir la présentation</button>
+  </div>
+</form>
+<script is:inline>
+  (function(){
+    try {
+      var p = new URLSearchParams(location.search);
+      ['source','medium','campaign'].forEach(function(k){
+        var v = p.get('utm_'+k) || sessionStorage.getItem('utm_'+k);
+        if (v) { sessionStorage.setItem('utm_'+k, v); var el = document.getElementById('f-utm-'+k); if (el) el.value = v; }
+      });
+    } catch(e){}
+  })();
+</script>

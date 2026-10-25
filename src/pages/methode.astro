@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+import Faq from '../components/Faq.astro';
+import { FAQ, faqSchema } from '../data/faq';
+
+const faq = FAQ.filter((f) => f.tags.includes('methode'));
+const title = "La méthode Blocages & Intuition : psychologie, neurosciences, philosophie et corps";
+const description =
+  "Comment nous travaillons : identifier les schémas de sur-adaptation, réunifier ce qui a été fragmenté, réhabiliter l'intuition, agir depuis soi. Winnicott, Butler, Bourdieu, Damasio, Spinoza. Une méthode née de dix ans d'entrepreneuriat et d'une recherche en sciences cognitives.";
+---
+<Base title={title} description={description} schema={faqSchema(faq)}>
+  <section class="hero">
+    <div class="wrap narrow">
+      <p class="eyebrow">La méthode</p>
+      <h1>Nous ne cherchons pas une meilleure version de vous. <em>Nous vous cherchons vous.</em></h1>
+      <p class="lead">Notre méthode tient en une phrase : la plupart des blocages qu'on vit ne viennent pas d'un défaut chez soi. Ils viennent de ce qu'on a appris, et des milieux dans lesquels on évolue. Le travail consiste à rendre ces deux choses visibles, puis à changer concrètement la façon d'agir.</p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow violet">D'où elle vient</p>
+        <h2>Deux expériences <em>qui se croisent.</em></h2>
+      </div>
+      <div class="lead">
+        <p>La mienne d'abord, dit Cloé : dix ans à diriger, lever des fonds, décider sous pression. Et à sentir ce que coûte un leadership construit sur la performance plutôt que sur soi.</p>
+        <p>Celle d'Émilien ensuite : une thèse en philosophie des sciences cognitives, c'est-à-dire sur la manière dont on perçoit, ressent et agit, une formation en psychologie du développement, et huit ans à accompagner un dirigeant en parallèle de sa recherche.</p>
+        <p>Nous croisons psychologie, neurosciences et philosophie, et nous y ajoutons le corps, parce que c'est souvent là que le doute se loge, et là qu'il se défait. Chaque séance est relue à deux, donc la méthode s'ajuste à la personne au lieu d'être plaquée.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Quatre leviers</p>
+      <h2>Pas des outils. <em>Des déplacements.</em></h2>
+      <div class="grid grid-2" style="margin-top:2.5rem">
+        <div class="card">
+          <p class="num">01</p>
+          <h3>Identifier les schémas de sur-adaptation</h3>
+          <p>Comprendre ce qui pousse à se conformer au détriment de sa puissance d'agir. Ces schémas ne viennent pas d'un défaut : ce sont des réponses intelligentes à des environnements exigeants, et à ce qu'on a appris très tôt pour être aimée et à sa place.</p>
+          <div class="tags"><span class="tag">Habitus</span><span class="tag">Sur-adaptation</span><span class="tag">Légitimité</span></div>
+        </div>
+        <div class="card">
+          <p class="num">02</p>
+          <h3>Réunifier ce qui a été fragmenté</h3>
+          <p>Réconcilier l'identité construite pour plaire avec ce qui génère une autorité intérieure réelle. Un leadership fragmenté coûte : en décisions, en présence, en engagement.</p>
+          <div class="tags"><span class="tag">Identité</span><span class="tag">Autorité</span><span class="tag">Cohérence</span></div>
+        </div>
+        <div class="card">
+          <p class="num">03</p>
+          <h3>Réhabiliter la perception et l'intuition</h3>
+          <p>Rétablir la confiance dans ses propres signaux. Ancrage corporel, respiration, visualisation, pour reconnecter ressenti et action. L'intuition n'est pas un mystère. C'est une compétence, qui émerge quand le stress baisse.</p>
+          <div class="tags"><span class="tag">Intuition</span><span class="tag">Corps</span><span class="tag">Signaux somatiques</span></div>
+        </div>
+        <div class="card">
+          <p class="num">04</p>
+          <h3>Agir depuis soi, pas depuis la peur</h3>
+          <p>Raccourcir le temps entre ce qui est perçu et ce qui est fait. Construire une autorité intérieure qui ne dépend plus de la validation externe pour s'activer.</p>
+          <div class="tags"><span class="tag">Autorité intérieure</span><span class="tag">Action</span><span class="tag">Conatus</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow">La boussole</p>
+        <h2>La puissance d'agir, <em>selon Spinoza.</em></h2>
+      </div>
+      <div class="lead">
+        <p>Ce n'est pas la force ni la réussite. C'est la capacité à agir à partir de soi. On peut être très performante et avoir une puissance d'agir faible, parce qu'on agit pour tenir un rôle.</p>
+        <p>Concrètement : dans quelles situations vous vous sentez plus capable, plus vous-même ? Dans lesquelles vous vous videz, même quand tout va bien sur le papier ? Ça peut être exigeant, parfois inconfortable. Le but, c'est que votre énergie aille au bon endroit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Le socle théorique</p>
+      <h2>Au service <em>du concret.</em></h2>
+      <div class="grid grid-3" style="margin-top:2.5rem">
+        <div class="card white"><h3>Winnicott</h3><p>Faux self, vrai self. La façade adaptée n'est pas l'ennemie : elle protège. Le travail consiste à la rendre plus poreuse, pas à la détruire.</p></div>
+        <div class="card white"><h3>Butler</h3><p>Les comportements de leadership féminin sont performés dans un système d'attentes implicites, pas librement choisis. Le comprendre, c'est cesser de dire qu'il faut « oser davantage ».</p></div>
+        <div class="card white"><h3>Bourdieu</h3><p>Habitus et domination symbolique : pourquoi on applique les critères de légitimité des dominants plus sévèrement qu'eux-mêmes, et comment en sortir.</p></div>
+        <div class="card white"><h3>Damasio</h3><p>Les marqueurs somatiques comme données stratégiques. Le corps sait souvent avant la tête. Apprendre à le lire sans le censurer.</p></div>
+        <div class="card white"><h3>Spinoza</h3><p>Le conatus. Chaque décision augmente ou diminue la puissance d'agir. Réapprendre à distinguer ce qui expand de ce qui rétracte.</p></div>
+        <div class="card white"><h3>Neurosciences</h3><p>Le cerveau cherche la sécurité, pas la vérité : appartenance, conformité, comparaison. Plasticité, régulation émotionnelle, respiration comme outils concrets.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow violet">Ce que ce n'est pas</p>
+      <h2>Ni une thérapie, <em>ni un coaching de performance.</em></h2>
+      <div class="grid grid-2" style="margin-top:2rem">
+        <div><h3>Pas une thérapie</h3><p style="margin-top:.5rem">Nous ne soignons pas. Si quelque chose relève du soin, nous le disons. Nous avons en revanche une connaissance plus directe du monde professionnel qu'une thérapie, qui traite ces sujets de façon périphérique.</p></div>
+        <div><h3>Pas un coaching de performance</h3><p style="margin-top:.5rem">Nous n'optimisons personne. Nous avons plus de profondeur qu'un coaching classique : nous travaillons sur ce qui génère les comportements, pas sur les comportements. L'objectif, c'est que chacune décide depuis elle-même.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <p class="eyebrow">Questions fréquentes</p>
+      <h2 style="margin-bottom:2rem">Sur la <em>méthode.</em></h2>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <CTA location="methode-bottom" />
+</Base>

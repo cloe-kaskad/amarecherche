@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+import { SITE } from '../site';
+
+const title = "Cloé Dana et Émilien Dereclenne | L'équipe Blocages & Intuition";
+const description =
+  "Cloé Dana, entrepreneure depuis dix ans (tech, levées de fonds, Forbes 30 Under 30), cofondatrice de Kaskad, conduit les séances. Émilien Dereclenne, docteur en philosophie des sciences cognitives formé en psychologie du développement, en produit l'analyse.";
+const people = [
+  {
+    '@context': 'https://schema.org', '@type': 'Person', '@id': 'https://amarecherche.fr/equipe/#cloe-dana',
+    name: 'Cloé Dana', jobTitle: 'Fondatrice et accompagnatrice, Blocages & Intuition',
+    image: 'https://amarecherche.fr/images/cloe-dana-portrait.webp', url: 'https://amarecherche.fr/equipe/',
+    worksFor: { '@id': 'https://amarecherche.fr/#organization' },
+    sameAs: [SITE.linkedinCloe].filter(Boolean),
+    description: "Entrepreneure depuis plus de dix ans (tech, levées de fonds, management d'équipes internationales), Forbes 30 Under 30, cofondatrice de Kaskad. Elle conduit chaque séance Blocages & Intuition.",
+    knowsAbout: ['entrepreneuriat', 'leadership féminin', 'intuition', 'coaching de dirigeantes'],
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'Person', '@id': 'https://amarecherche.fr/equipe/#emilien-dereclenne',
+    name: 'Émilien Dereclenne', jobTitle: 'Docteur en philosophie, enseignant-chercheur',
+    image: 'https://amarecherche.fr/images/emilien-dereclenne.webp', url: 'https://amarecherche.fr/equipe/',
+    worksFor: { '@id': 'https://amarecherche.fr/#organization' },
+    description: "Docteur en philosophie des sciences cognitives, formé en psychologie du développement, enseignant-chercheur et conférencier. Il relit chaque séance et produit une analyse écrite.",
+    knowsAbout: ['philosophie des sciences cognitives', 'psychologie du développement', 'intuition', 'décision', "puissance d'agir"],
+  },
+];
+---
+<Base title={title} description={description} schema={people}>
+  <section class="hero">
+    <div class="wrap narrow">
+      <p class="eyebrow">L'équipe</p>
+      <h1>Un regard double. <em>Rare pour ce type d'accompagnement.</em></h1>
+      <p class="lead">Une entrepreneure qui a vécu de l'intérieur ce que coûte le leadership construit sur la performance. Un philosophe dont la recherche porte sur la façon dont se forment l'intuition, la décision et la puissance d'agir. L'une en séance, l'autre après.</p>
+    </div>
+  </section>
+
+  <section class="alt" id="cloe-dana">
+    <div class="wrap">
+      <div class="person">
+        <img src="/images/cloe-dana-portrait.webp" alt="Cloé Dana" width="180" height="180" loading="eager" />
+        <div>
+          <h2>Cloé Dana</h2>
+          <p class="role">Entrepreneure · Forbes 30 Under 30 · Cofondatrice de Kaskad</p>
+          <p class="lead">Dix ans d'entrepreneuriat en tech : levées de fonds, management d'équipes internationales, décisions sous pression. Elle a vécu de l'intérieur ce que coûte le leadership construit sur la performance plutôt que sur soi. Cofondatrice de Kaskad, un écosystème de lieux pour travailler autrement, et de Liberté, Chérie !, un projet culturel sur la liberté et l'identité féminines, elle accompagne aujourd'hui des femmes à retrouver leur puissance propre, celle qui ne dépend pas du regard externe pour s'activer.</p>
+          <h3 style="margin-top:1.5rem">Son rôle dans le programme</h3>
+          <p style="margin-top:.5rem">Elle conduit chaque séance depuis ce que la personne vit maintenant, pas depuis une méthode plaquée. Elle crée l'espace exigeant où quelque chose peut vraiment se dire et se déplacer. Sa formation en coaching et son expérience entrepreneuriale se croisent dans une approche qui ne sépare jamais le corps, l'histoire et l'action. Entre les séances, c'est elle que vous joignez sur WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="emilien-dereclenne">
+    <div class="wrap">
+      <div class="person">
+        <img src="/images/emilien-dereclenne.webp" alt="Émilien Dereclenne" width="180" height="180" loading="lazy" />
+        <div>
+          <h2>Émilien Dereclenne</h2>
+          <p class="role">Docteur en philosophie · Enseignant-chercheur · Conférencier</p>
+          <p class="lead">Une double formation : une thèse de doctorat en philosophie des sciences cognitives, c'est-à-dire sur la manière dont on perçoit, ressent et agit, complétée d'une formation en psychologie du développement émotionnel et cognitif. Et une pratique de terrain : pendant huit ans, en parallèle de sa thèse, il a accompagné un dirigeant, et continue à le faire. Il connaît de l'intérieur les décisions, les pressions et les solitudes d'une position de direction. Il intervient en entreprise sur la légitimité, la création de soi et le rapport à l'action.</p>
+          <h3 style="margin-top:1.5rem">Son rôle dans le programme</h3>
+          <p style="margin-top:.5rem">Vous ne le verrez pas. Il n'intervient pas pendant la séance : son travail commence après. À partir du transcript, il produit une analyse écrite structurée : les tensions de fond, les mécanismes en jeu (les répétitions, les loyautés, ce que le corps signale), les points précis sur lesquels déplacer l'effort. Il ne fait pas de théorie pour la théorie. Les clientes repartent avec une lecture de leur situation qu'elles n'avaient pas en entrant.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow violet">Où nous recevons</p>
+        <h2>Kaskad République, <em>Paris 10e.</em></h2>
+        <p class="lead" style="margin-top:1.25rem">Un lieu de travail et d'accueil cofondé par Cloé, entre République et Gare de l'Est. Un salon, une verrière, une salle pour les ateliers. C'est ici que se tiennent les séances quand elles n'ont pas lieu chez vous.</p>
+      </div>
+      <img src="/images/kaskad-republique-verriere.webp" alt="Verrière de Kaskad République" width="1200" height="1600" loading="lazy" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" />
+    </div>
+  </section>
+
+  <CTA location="equipe-bottom" />
+</Base>

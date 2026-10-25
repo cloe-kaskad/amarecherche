@@ -1,0 +1,28 @@
+---
+import { CALENDAR_URL } from '../site';
+interface Props {
+  title?: string;
+  text?: string;
+  location: string;
+  dark?: boolean;
+  secondary?: { href: string; label: string } | null;
+}
+const {
+  title = 'Un premier échange de 30 minutes, <em>en visio.</em>',
+  text = "Vous nous dites où vous en êtes, ce qui coûte, et ce que vous cherchez pour vous ou pour votre équipe. On vous dit si ce programme est fait pour ça, et comment on travaillerait. Sans engagement.",
+  location,
+  dark = true,
+  secondary = { href: '/entreprises/#presentation', label: 'Recevoir la présentation' },
+} = Astro.props;
+---
+<section class={dark ? 'dark' : 'alt'}>
+  <div class="wrap narrow">
+    <h2 set:html={title} />
+    <p class="lead" style="margin-top:1.25rem">{text}</p>
+    <div class="btn-row">
+      <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location={location}>Réserver un échange</a>
+      {secondary && <a href={secondary.href} class="btn btn-outline" data-event="secondary_click" data-location={location}>{secondary.label}</a>}
+    </div>
+    <p class="small" style="margin-top:1.5rem;opacity:.75">Réponse sous 48h · Présentiel à Paris · Cadre strictement confidentiel</p>
+  </div>
+</section>

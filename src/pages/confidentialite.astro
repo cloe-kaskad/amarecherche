@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../site';
+---
+<Base title="Politique de confidentialité | Blocages & Intuition" description="Données collectées sur amarecherche.fr et vos droits." noindex={true}>
+  <section class="hero tight"><div class="wrap narrow"><h1>Confidentialité</h1></div></section>
+  <section class="tight"><div class="wrap narrow article">
+    <h2>Mesure d'audience</h2>
+    <p>Ce site utilise Google Analytics 4 pour mesurer son audience, uniquement si vous l'acceptez via le bandeau affiché à votre première visite. Les adresses IP sont anonymisées. Vous pouvez changer d'avis à tout moment en effaçant les données de ce site dans votre navigateur, puis en refusant lors de la prochaine visite.</p>
+    <h2>Formulaires</h2>
+    <p>Les informations saisies dans le formulaire « Recevoir la présentation » (nom, email, entreprise, message) sont utilisées uniquement pour répondre à votre demande. Elles sont conservées 24 mois au maximum. Nous ne vous inscrivons à aucune newsletter sans votre accord explicite.</p>
+    <h2>Prise de rendez-vous</h2>
+    <p>La réservation d'un échange passe par Google Calendar. Les données que vous y saisissez sont traitées selon les conditions de Google.</p>
+    <h2>Accompagnement</h2>
+    <p>Le contenu des séances, les enregistrements, transcripts et notes d'analyse sont strictement confidentiels. Ils ne sont partagés avec aucun tiers, y compris l'entreprise qui finance le parcours.</p>
+    <h2>Vos droits</h2>
+    <p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données en écrivant à <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Responsable du traitement : {SITE.legal.company}, {SITE.legal.address}.</p>
+  </div></section>
+</Base>

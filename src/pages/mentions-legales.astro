@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../site';
+---
+<Base title="Mentions légales | Blocages & Intuition" description="Mentions légales du site amarecherche.fr." noindex={true}>
+  <section class="hero tight"><div class="wrap narrow"><h1>Mentions <em>légales</em></h1></div></section>
+  <section class="tight"><div class="wrap narrow article">
+    <h2>Éditeur</h2>
+    <p>{SITE.legal.company}, {SITE.legal.address}. SIREN : {SITE.legal.siren}. Directrice de la publication : {SITE.legal.director}. Contact : <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+    <h2>Hébergement</h2>
+    <p>Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis.</p>
+    <h2>Propriété intellectuelle</h2>
+    <p>L'ensemble des contenus de ce site (textes, photographies, identité visuelle) est la propriété de l'éditeur. Toute reproduction sans autorisation est interdite.</p>
+    <h2>Données personnelles</h2>
+    <p>Voir la <a href="/confidentialite/">politique de confidentialité</a>.</p>
+  </div></section>
+</Base>

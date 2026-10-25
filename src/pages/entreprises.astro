@@ -1,0 +1,152 @@
+---
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+import Faq from '../components/Faq.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { FAQ, faqSchema } from '../data/faq';
+import { CALENDAR_URL, PRICING } from '../site';
+
+const faq = FAQ.filter((f) => f.tags.includes('entreprises'));
+const title = "Accompagnement individuel de dirigeantes en entreprise | Blocages & Intuition, Paris";
+const description =
+  "Accompagnement 1:1 de vos dirigeantes et cadres clés : 600 € HT par mois, 2 séances d'1h30 en présentiel, exercices, lectures, WhatsApp. Syndrome de l'imposteur, sur-adaptation, décision. Cadrage tripartite, confidentialité stricte. Paris.";
+const service = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Accompagnement individuel de dirigeantes et cadres clés en entreprise',
+  serviceType: 'Executive coaching',
+  provider: { '@id': 'https://amarecherche.fr/#organization' },
+  areaServed: { '@type': 'City', name: 'Paris' },
+  audience: { '@type': 'BusinessAudience', name: 'Entreprises, DRH, dirigeants de scale-ups' },
+  description,
+  offers: {
+    '@type': 'Offer',
+    price: PRICING.entreprise.monthly,
+    priceCurrency: 'EUR',
+    priceSpecification: { '@type': 'UnitPriceSpecification', price: PRICING.entreprise.monthly, priceCurrency: 'EUR', unitText: 'mois HT', valueAddedTaxIncluded: false },
+    url: 'https://amarecherche.fr/entreprises/',
+    availability: 'https://schema.org/InStock',
+  },
+};
+---
+<Base title={title} description={description} schema={[service, faqSchema(faq)]}>
+  <section class="hero">
+    <div class="wrap split hero-split">
+      <div>
+        <p class="eyebrow">Entreprises · Accompagnement individuel</p>
+        <h1>Vos dirigeantes clés opèrent en dessous de <em>leur puissance réelle.</em></h1>
+        <p class="lead">
+          Ce qui fait leur force est aussi ce qui les épuise : elles performent, elles s'adaptent, elles tiennent. Et ça se paie, en doute, en décisions retardées, en départs silencieux. Blocages & Intuition travaille sur ce qui génère ces comportements, pas seulement sur les comportements.
+        </p>
+        <div class="btn-row">
+          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="entreprises-hero">Réserver un échange</a>
+          <a href="#presentation" class="btn btn-outline" data-event="secondary_click" data-location="entreprises-hero">Recevoir la présentation</a>
+        </div>
+        <div class="hero-meta">
+          <span>{PRICING.entreprise.monthly} € HT / mois</span>
+          <span>Présentiel, chez vous ou à Paris 10e</span>
+          <span>Facturation entreprise</span>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="/images/cloe-dana-atelier.webp" alt="Cloé Dana lors d'une intervention Blocages & Intuition en entreprise" width="1200" height="1600" loading="eager" fetchpriority="high" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow violet">Ce que ça vous coûte</p>
+      <h2 style="max-width:22ch">Vos talents les plus stratégiques sont souvent ceux qui sur-adaptent le plus.</h2>
+      <div class="grid grid-3" style="margin-top:2.5rem">
+        <div class="card white"><p class="num">Désengagement silencieux</p><p>Elle performe objectivement, mais son énergie s'épuise à maintenir une façade. Vous le voyez tard, souvent quand elle part.</p></div>
+        <div class="card white"><p class="num">Décisions ralenties</p><p>Elle sait qu'elle a de la valeur, mais le doute chronique revient. Il ralentit ses arbitrages et fragilise son leadership.</p></div>
+        <div class="card white"><p class="num">Intuition neutralisée</p><p>Elle a une perception fine des situations, mais ne lui fait plus confiance. Elle sur-rationalise, délègue ses décisions au regard des autres.</p></div>
+      </div>
+      <p class="lead" style="margin-top:2.5rem;max-width:760px">Le coût de remplacement d'un profil senior représente en moyenne six à neuf mois de salaire. Le coût d'une puissance diminuée (décisions sous-optimales, perte d'influence, désengagement) est moins visible, et plus élevé. Cet accompagnement coûte moins qu'un mois de ce que vous perdez déjà.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow">Le parcours</p>
+        <h2>Six mois pour que l'énergie aille <em>au bon endroit.</em></h2>
+        <p class="lead" style="margin-top:1.25rem">Un cadre pensé pour que le travail tienne dans la durée, et pour que votre entreprise sache ce qu'elle finance sans jamais entrer dans le contenu des séances.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div><h3>Cadrage à trois</h3><p>Une réunion de départ avec la dirigeante, son manager ou les RH, et Cloé : objectifs, cadre, confidentialité. Le contenu des séances n'y est jamais partagé.</p></div></div>
+        <div class="step"><div><h3>Deux séances d'1h30 par mois</h3><p>En présentiel, dans vos locaux ou à Kaskad République (Paris 10e). Chaque séance part de ce que la personne vit maintenant, pas d'une méthode plaquée. Les séances sont enregistrées et retranscrites pour elle.</p></div></div>
+        <div class="step"><div><h3>Entre les séances</h3><p>Un à deux exercices à vivre dans la vraie vie (pas seulement à comprendre), une lecture choisie, et Cloé joignable sur WhatsApp. C'est souvent là que les choses bougent.</p></div></div>
+        <div class="step"><div><h3>Le regard d'Émilien</h3><p>Émilien Dereclenne lit chaque transcript et produit une analyse écrite : les tensions de fond, les mécanismes en jeu, les points précis sur lesquels déplacer l'effort. Elle repart avec une lecture de sa situation qu'elle n'avait pas en entrant.</p></div></div>
+        <div class="step"><div><h3>Bilan à trois</h3><p>En fin de parcours : ce qui a bougé, ce qui reste à tenir, et si une prolongation a du sens. Toujours sans le contenu des séances.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow violet">L'investissement</p>
+      <h2>Un tarif simple, <em>facturé à votre entreprise.</em></h2>
+      <div class="grid grid-2" style="margin-top:2.5rem;align-items:start">
+        <div class="price-card featured">
+          <span class="badge">Parcours entreprise</span>
+          <h3>Accompagnement individuel</h3>
+          <p class="price">{PRICING.entreprise.monthly} € <small>HT / mois</small></p>
+          <ul>
+            <li>2 séances individuelles d'1h30 par mois, en présentiel</li>
+            <li>Transcript de chaque séance</li>
+            <li>Exercices personnalisés et lectures entre les séances</li>
+            <li>Cloé joignable sur WhatsApp entre les séances</li>
+            <li>Analyse écrite d'Émilien Dereclenne après chaque séance</li>
+            <li>Cadrage et bilan tripartites</li>
+            <li>Parcours standard de {PRICING.entreprise.standardMonths} mois · {PRICING.entreprise.minMonths} mois minimum · prolongeable</li>
+          </ul>
+          <a href={CALENDAR_URL} class="btn btn-violet" target="_blank" rel="noopener" data-event="rdv_click" data-location="entreprises-pricing">Réserver un échange</a>
+        </div>
+        <div>
+          <h3>Pourquoi ce format</h3>
+          <p style="margin-top:.75rem">Deux séances par mois, c'est le rythme qui laisse le temps d'intégrer sans perdre le fil. Six mois, c'est la durée qu'il faut pour qu'un schéma appris sur des années se déplace vraiment, pas seulement se comprenne.</p>
+          <p>Le tarif comprend tout : il n'y a pas d'option, pas de supplément pour les déplacements à Paris, pas de frais pour le lieu si vous préférez Kaskad République.</p>
+          <h3 style="margin-top:1.5rem">Pour qui, concrètement</h3>
+          <p style="margin-top:.75rem">Une dirigeante, une COO, une VP, une cofondatrice, une directrice de BU, une cadre identifiée comme clé. Souvent dans des environnements très masculins ou très exigeants. Le plus souvent entre 35 et 50 ans, mais ce n'est pas un critère.</p>
+          <p>Vous êtes vous-même cette dirigeante et vous souhaitez faire financer le parcours par votre société ? <a href="/particulieres/" class="link">C'est possible, et fréquent.</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <img src="/images/kaskad-republique-verriere.webp" alt="La verrière de Kaskad République, Paris 10e" width="1200" height="1600" loading="lazy" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" />
+      <div>
+        <p class="eyebrow">Déjà en entreprise</p>
+        <h2>Covivio, réseau Ex Æquo, <em>octobre 2026.</em></h2>
+        <p class="lead" style="margin-top:1.25rem">Atelier « La permission » pour les alumni du programme Ex Æquo de Covivio, à Kaskad République. Le format court qui, souvent, fait naître les demandes d'accompagnement individuel.</p>
+        <p style="margin-top:1rem">Depuis mars 2026, six femmes dirigeantes et entrepreneures ont été accompagnées en individuel. Les retours écrits arrivent ; nous préférons les publier avec leur accord plutôt que d'inventer des témoignages.</p>
+        <p style="margin-top:1rem"><a href="/ateliers/" class="link">Découvrir les ateliers</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="presentation">
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow violet">La présentation entreprise</p>
+        <h2>Recevez le programme <em>en PDF.</em></h2>
+        <p class="lead" style="margin-top:1.25rem">La méthode, les quatre leviers d'intervention, le format, l'équipe et le tarif, en douze pages à partager en interne. Nous vous répondons sous 48h, et nous ne vous ajoutons à aucune newsletter.</p>
+      </div>
+      <LeadForm context="entreprises" />
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <p class="eyebrow">Questions des entreprises</p>
+      <h2 style="margin-bottom:2rem">Ce que demandent <em>les RH et les dirigeants.</em></h2>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <CTA location="entreprises-bottom" title="Parlons de la personne <em>que vous avez en tête.</em>" text="Trente minutes en visio pour comprendre sa situation, ce qui lui coûte, et vous dire si ce parcours est fait pour elle. Sans engagement, et sans jargon." secondary={null} />
+</Base>

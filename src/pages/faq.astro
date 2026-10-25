@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+import Faq from '../components/Faq.astro';
+import { FAQ, faqSchema } from '../data/faq';
+const title = "Questions fréquentes | Blocages & Intuition";
+const description = "Tout ce qu'on nous demande avant de commencer : thérapie ou coaching, déroulé, tarifs, confidentialité, lieu, syndrome de l'imposteur, puissance d'agir.";
+---
+<Base title={title} description={description} schema={faqSchema(FAQ)}>
+  <section class="hero tight">
+    <div class="wrap narrow">
+      <p class="eyebrow">Questions fréquentes</p>
+      <h1>Ce qu'on nous demande <em>avant de commencer.</em></h1>
+    </div>
+  </section>
+  <section class="tight">
+    <div class="wrap narrow"><Faq items={FAQ} /></div>
+  </section>
+  <CTA location="faq-bottom" />
+</Base>

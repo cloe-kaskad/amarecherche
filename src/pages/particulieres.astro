@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+import Faq from '../components/Faq.astro';
+import { FAQ, faqSchema } from '../data/faq';
+import { CALENDAR_URL, PRICING } from '../site';
+
+const faq = FAQ.filter((f) => f.tags.includes('particulieres') || f.tags.includes('general'));
+const title = "Accompagnement à titre personnel | Blocages & Intuition, Paris 10e";
+const description =
+  "Le même accompagnement, financé par vous : 400 € par mois, sans engagement. Séances d'1h30 à Paris 10e, exercices, lectures, Cloé joignable sur WhatsApp, analyse d'Émilien Dereclenne. Pour dirigeantes, fondatrices et cadres.";
+const service = {
+  '@context': 'https://schema.org', '@type': 'Service',
+  name: 'Accompagnement individuel Blocages & Intuition (particulières)',
+  provider: { '@id': 'https://amarecherche.fr/#organization' },
+  areaServed: { '@type': 'City', name: 'Paris' },
+  description,
+  offers: { '@type': 'Offer', price: PRICING.perso.monthly, priceCurrency: 'EUR', priceSpecification: { '@type': 'UnitPriceSpecification', price: PRICING.perso.monthly, priceCurrency: 'EUR', unitText: 'mois' }, url: 'https://amarecherche.fr/particulieres/' },
+};
+---
+<Base title={title} description={description} schema={[service, faqSchema(faq)]}>
+  <section class="hero">
+    <div class="wrap split hero-split">
+      <div>
+        <p class="eyebrow">À titre personnel</p>
+        <h1>Vous réussissez, mais vous vous sentez opératoire <em>plutôt que vivante.</em></h1>
+        <p class="lead">Vous êtes dirigeante, fondatrice, cadre. Vous jouez parfaitement le jeu, et ça vous coûte quelque chose d'essentiel. Vous avez déjà compris vos schémas, mais comprendre ne suffit pas à déplacer. Ce programme travaille exactement à cet endroit.</p>
+        <div class="btn-row">
+          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="perso-hero">Réserver un échange</a>
+        </div>
+        <div class="hero-meta">
+          <span>{PRICING.perso.monthly} € / mois, sans engagement</span>
+          <span>Présentiel, Paris 10e</span>
+          <span>Premier échange offert</span>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="/images/kaskad-republique-salon.webp" alt="Le salon de Kaskad République où se tiennent les séances" width="1200" height="1600" loading="eager" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow violet">Comment ça se passe</p>
+        <h2>Le même travail de fond, <em>à votre rythme.</em></h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div><h3>Une séance découverte offerte</h3><p>Trente minutes en visio. On dresse le paysage, et à la fin on voit ensemble si ça a du sens de continuer. Tout reste entre nous. Si quelque chose relève du soin, Cloé vous le dira.</p></div></div>
+        <div class="step"><div><h3>Des séances d'1h30 à Kaskad République</h3><p>En présentiel, à Paris 10e. Chaque séance part de ce que vous vivez maintenant. Elle est enregistrée et retranscrite pour vous.</p></div></div>
+        <div class="step"><div><h3>Entre les séances</h3><p>Un ou deux exercices très concrets à vivre dans votre quotidien, parfois un texte à lire, et Cloé joignable sur WhatsApp. C'est souvent là que les choses bougent : pas en en parlant, mais en le vivant.</p></div></div>
+        <div class="step"><div><h3>La lecture d'Émilien</h3><p>Émilien Dereclenne lit chaque séance et apporte, avec son double regard philosophique et psychologique, une analyse qui complète la compréhension de ce qui se joue. Vous ne le verrez pas. Vous repartirez avec sa lecture.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid grid-2" style="align-items:start">
+        <div class="price-card featured">
+          <span class="badge">Particulières</span>
+          <h3>Abonnement mensuel</h3>
+          <p class="price">{PRICING.perso.monthly} € <small>/ mois · sans engagement</small></p>
+          <ul>
+            <li>Séances individuelles d'1h30 en présentiel, Paris 10e</li>
+            <li>Transcript, exercices personnalisés et lectures</li>
+            <li>Cloé joignable sur WhatsApp entre les séances</li>
+            <li>Analyse écrite d'Émilien après chaque séance</li>
+            <li>Vous arrêtez quand vous voulez</li>
+          </ul>
+          <a href={CALENDAR_URL} class="btn btn-violet" target="_blank" rel="noopener" data-event="rdv_click" data-location="perso-pricing">Réserver la séance découverte</a>
+        </div>
+        <div>
+          <h3>Votre société peut financer le parcours</h3>
+          <p style="margin-top:.75rem">Si vous êtes fondatrice ou dirigeante, votre entreprise peut prendre en charge l'accompagnement. Dans ce cas, c'est le <a href="/entreprises/" class="link">parcours entreprise</a> qui s'applique : deux séances par mois, facturation à votre société, cadrage et bilan, sur six mois.</p>
+          <h3 style="margin-top:1.5rem">Pourquoi deux tarifs</h3>
+          <p style="margin-top:.75rem">Le parcours entreprise comprend un cadrage et un bilan avec votre organisation, deux séances par mois garanties et une facturation HT à la société. L'abonnement personnel est plus souple : vous choisissez le rythme, et vous pouvez arrêter à tout moment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap narrow">
+      <p class="eyebrow violet">Questions fréquentes</p>
+      <h2 style="margin-bottom:2rem">Avant de <em>commencer.</em></h2>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <CTA location="perso-bottom" title="Revenir <em>à vous.</em>" text="Une séance découverte offerte, pour comprendre où vous en êtes, ce qui vous coûte, et si ce programme est fait pour vous. Sans engagement." secondary={null} />
+</Base>

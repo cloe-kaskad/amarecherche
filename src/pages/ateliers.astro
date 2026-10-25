@@ -1,0 +1,147 @@
+---
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+import Faq from '../components/Faq.astro';
+import { FAQ, faqSchema } from '../data/faq';
+import { CALENDAR_URL, PRICING } from '../site';
+
+const faq = FAQ.filter((f) => f.tags.includes('ateliers'));
+const title = "Ateliers en entreprise pour femmes dirigeantes et cadres | Blocages & Intuition, Paris";
+const description =
+  "Atelier de 2h en entreprise, 10 personnes maximum : la permission, la conformité, le syndrome de l'imposteur, l'intuition dans la décision, le contrôle, l'ambition. Chez vous ou à Kaskad République. À partir de 1 500 € HT, cycle de 3 ateliers 3 600 € HT.";
+
+const themes = [
+  { t: 'La permission', d: "Qui vous a autorisée à décider, à prendre la place, à dire non ? Personne, et c'est le problème. L'atelier travaille l'autorité qu'on s'accorde, pas celle qu'on attend." },
+  { t: 'La conformité', d: "Pourquoi on s'ajuste à ce qu'on croit attendu, même quand ça nous coûte. Lire les règles implicites de son milieu pour choisir, plutôt que subir." },
+  { t: "Le syndrome de l'imposteur", d: "Le doute qui revient alors que tout prouve le contraire. Pas un manque de confiance à corriger : une adaptation intelligente à un système, à défaire autrement." },
+  { t: "L'intuition dans la décision", d: "Le corps sait souvent avant la tête. Réapprendre à lire ses propres signaux, et raccourcir le temps entre ce qu'on perçoit et ce qu'on fait." },
+  { t: 'Le contrôle', d: "Tout tenir, tout vérifier, être à 150 %. Ce que ça protège, ce que ça coûte, et comment déléguer sans se sentir en danger." },
+  { t: "L'ambition", d: "Vouloir plus, sans s'excuser. Ce qui rend l'ambition féminine suspecte, et comment la porter sans la diluer." },
+];
+
+const service = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Atelier en entreprise Blocages & Intuition',
+  serviceType: 'Atelier de développement du leadership féminin',
+  provider: { '@id': 'https://amarecherche.fr/#organization' },
+  areaServed: { '@type': 'City', name: 'Paris' },
+  description,
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Thèmes d\'ateliers',
+    itemListElement: themes.map((th) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: `Atelier « ${th.t} »`, description: th.d } })),
+  },
+  offers: [
+    { '@type': 'Offer', name: 'Atelier de 2h', price: PRICING.atelier.single, priceCurrency: 'EUR', priceSpecification: { '@type': 'PriceSpecification', price: PRICING.atelier.single, priceCurrency: 'EUR', valueAddedTaxIncluded: false }, url: 'https://amarecherche.fr/ateliers/' },
+    { '@type': 'Offer', name: 'Cycle de 3 ateliers', price: PRICING.atelier.cycle3, priceCurrency: 'EUR', priceSpecification: { '@type': 'PriceSpecification', price: PRICING.atelier.cycle3, priceCurrency: 'EUR', valueAddedTaxIncluded: false }, url: 'https://amarecherche.fr/ateliers/' },
+  ],
+};
+---
+<Base title={title} description={description} schema={[service, faqSchema(faq)]}>
+  <section class="hero">
+    <div class="wrap split hero-split">
+      <div>
+        <p class="eyebrow">Entreprises · Ateliers collectifs</p>
+        <h1>Deux heures, dix personnes, <em>un sujet qu'on n'aborde jamais.</em></h1>
+        <p class="lead">
+          Un atelier Blocages & Intuition ne donne pas des techniques. Il rend visible ce qui, chez vos talents, génère le doute, la sur-adaptation et le silence en réunion. Et il leur donne, avec le corps autant qu'avec la tête, une première façon de faire autrement.
+        </p>
+        <div class="btn-row">
+          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="ateliers-hero">Organiser un atelier</a>
+          <a href="#themes" class="btn btn-outline">Voir les thèmes</a>
+        </div>
+        <div class="hero-meta">
+          <span>À partir de {PRICING.atelier.single.toLocaleString('fr-FR')} € HT</span>
+          <span>Chez vous ou à Kaskad République</span>
+          <span>10 personnes max</span>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="/images/atelier-blocages-intuition-kaskad.webp" alt="Atelier Blocages & Intuition animé par Cloé Dana à Kaskad République" width="1600" height="1200" loading="eager" fetchpriority="high" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="themes">
+    <div class="wrap">
+      <p class="eyebrow violet">Les thèmes</p>
+      <h2>Un mot, <em>un atelier.</em></h2>
+      <p class="lead" style="margin-top:1rem;max-width:720px">Chaque atelier part d'un seul thème, choisi avec vous (ou par sondage auprès des participantes, comme chez Covivio). Les thèmes se combinent en cycle de trois.</p>
+      <div class="grid grid-3" style="margin-top:2.5rem">
+        {themes.map((th, i) => (
+          <div class="card white"><p class="num">0{i + 1}</p><h3>{th.t}</h3><p>{th.d}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow">Le déroulé</p>
+        <h2>Comprendre, sentir, <em>faire.</em></h2>
+        <p class="lead" style="margin-top:1.25rem">Deux heures, en trois temps. Pas de slides pendant une heure, pas de tour de table forcé. Un groupe de dix maximum pour que chacune parle vraiment.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div><h3>Nommer le système</h3><p>Trente minutes d'apports courts : ce que disent la psychologie, les neurosciences et la philosophie sur le thème. Toujours avec la même idée : ce n'est pas un défaut, c'est une adaptation.</p></div></div>
+        <div class="step"><div><h3>Mettre en mots</h3><p>Un temps d'exploration guidée, en sous-groupes ou en individuel : où ça se joue pour moi, concrètement, cette semaine. Ce qui se dit là reste dans la pièce.</p></div></div>
+        <div class="step"><div><h3>Passer par le corps</h3><p>Une pratique : respiration, ancrage, visualisation ou jeu de rôle. Pour que chacune reparte avec une expérience, pas seulement une idée, et un exercice à refaire seule.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow violet">Formats et tarifs</p>
+      <h2>Un atelier, <em>ou un cycle.</em></h2>
+      <div class="grid grid-2" style="margin-top:2.5rem;align-items:start">
+        <div class="price-card">
+          <h3>Atelier unique</h3>
+          <p class="price">{PRICING.atelier.single.toLocaleString('fr-FR')} € <small>HT</small></p>
+          <ul>
+            <li>2 heures · 10 personnes maximum</li>
+            <li>Un thème choisi avec vous</li>
+            <li>Chez vous ou à Kaskad République, sans supplément</li>
+            <li>Un exercice à emporter par participante</li>
+          </ul>
+          <a href={CALENDAR_URL} class="btn btn-outline" target="_blank" rel="noopener" data-event="rdv_click" data-location="ateliers-single">Organiser un atelier</a>
+        </div>
+        <div class="price-card featured">
+          <span class="badge">Recommandé</span>
+          <h3>Cycle de 3 ateliers</h3>
+          <p class="price">{PRICING.atelier.cycle3.toLocaleString('fr-FR')} € <small>HT</small></p>
+          <ul>
+            <li>3 ateliers de 2h, un thème par séance, à 3 à 6 semaines d'intervalle</li>
+            <li>Le même groupe, pour que la confiance s'installe</li>
+            <li>Préparation entre les séances avec Émilien Dereclenne, à partir de ce qui a émergé</li>
+            <li>Un fil rouge : de la compréhension à l'action</li>
+          </ul>
+          <a href={CALENDAR_URL} class="btn btn-violet" target="_blank" rel="noopener" data-event="rdv_click" data-location="ateliers-cycle">Organiser un cycle</a>
+        </div>
+      </div>
+      <p class="small muted" style="margin-top:1.5rem">Au-delà de 10 participantes ou hors Paris : sur devis.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Où</p>
+        <h2>Chez vous, ou dans un lieu <em>fait pour ça.</em></h2>
+        <p class="lead" style="margin-top:1.25rem">Kaskad République, Paris 10e : une salle lumineuse, un salon, une verrière. Le lieu cofondé par Cloé, où se tiennent déjà les séances individuelles. Il est inclus dans le tarif.</p>
+      </div>
+      <img src="/images/kaskad-republique-salle-reunion.webp" alt="Salle de réunion de Kaskad République pour les ateliers Blocages & Intuition" width="1600" height="1200" loading="lazy" style="border-radius:8px" />
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap narrow">
+      <p class="eyebrow violet">Questions fréquentes</p>
+      <h2 style="margin-bottom:2rem">Sur les <em>ateliers.</em></h2>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <CTA location="ateliers-bottom" title="Un atelier pour votre réseau, <em>votre équipe, votre promotion ?</em>" text="Dites-nous le contexte, le nombre de participantes et ce que vous aimeriez qu'elles emportent. On vous propose un thème et une date." secondary={{ href: '/entreprises/#presentation', label: 'Recevoir la présentation' }} />
+</Base>

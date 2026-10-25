@@ -1,0 +1,195 @@
+---
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+import Faq from '../components/Faq.astro';
+import { FAQ, faqSchema } from '../data/faq';
+import { CALENDAR_URL, PRICING } from '../site';
+
+const faq = FAQ.filter((f) => f.tags.includes('home'));
+const title = "Blocages & Intuition | Accompagnement de dirigeantes et femmes cadres clés, Paris";
+const description =
+  "Accompagnement individuel en entreprise et ateliers pour des femmes qui réussissent mais à qui cela coûte : syndrome de l'imposteur, sur-adaptation, intuition. Psychologie, neurosciences, philosophie et corps. Paris 10e.";
+---
+<Base title={title} description={description} schema={faqSchema(faq)}>
+  <section class="hero">
+    <div class="wrap split hero-split">
+      <div>
+        <p class="eyebrow">Accompagnement de dirigeantes · Paris</p>
+        <h1>Elles réussissent. <em>À quel prix ?</em></h1>
+        <p class="lead">
+          Blocages & Intuition accompagne des femmes qui réussissent, objectivement, mais à qui ça coûte trop : le doute qui revient alors que tout prouve le contraire, l'adaptation permanente, l'intuition qu'on n'écoute plus. Un travail de fond, en individuel ou en atelier, qui s'appuie sur la psychologie, les neurosciences, la philosophie, et le corps.
+        </p>
+        <div class="btn-row">
+          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="hero">Réserver un échange</a>
+          <a href="/entreprises/" class="btn btn-outline">L'offre entreprises</a>
+        </div>
+        <div class="hero-meta">
+          <span>Présentiel, Paris 10e ou dans vos locaux</span>
+          <span>Double regard : entrepreneure + philosophe</span>
+          <span>Cadre strictement confidentiel</span>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="/images/cloe-dana-portrait.webp" alt="Cloé Dana, fondatrice de Blocages & Intuition, à Kaskad République (Paris 10e)" width="1066" height="1600" loading="eager" fetchpriority="high" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="alt tight">
+    <div class="wrap">
+      <p class="eyebrow violet">Pour qui</p>
+      <div class="grid grid-3">
+        <a class="card white" href="/entreprises/" style="text-decoration:none">
+          <p class="num">01</p>
+          <h3>Vous dirigez une entreprise ou les RH</h3>
+          <p>Une de vos dirigeantes ou cadres clés sur-adapte, doute, ralentit ses décisions. Vous voulez protéger un profil rare, et lui donner un cadre sérieux.</p>
+          <p class="link" style="margin-top:1rem">Accompagnement 1:1 en entreprise →</p>
+        </a>
+        <a class="card white" href="/ateliers/" style="text-decoration:none">
+          <p class="num">02</p>
+          <h3>Vous animez un réseau ou une équipe</h3>
+          <p>Un atelier de deux heures, dix personnes, un thème : la permission, la conformité, le syndrome de l'imposteur, l'intuition dans la décision.</p>
+          <p class="link" style="margin-top:1rem">Ateliers en entreprise →</p>
+        </a>
+        <a class="card white" href="/particulieres/" style="text-decoration:none">
+          <p class="num">03</p>
+          <h3>Vous, pour vous</h3>
+          <p>Vous êtes dirigeante, fondatrice, cadre. Vous vous reconnaissez dans ces lignes et vous voulez travailler cela pour de bon, financée par votre société ou à titre personnel.</p>
+          <p class="link" style="margin-top:1rem">À titre personnel →</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow">Une idée simple</p>
+        <h2>Vos blocages ne viennent pas d'un défaut. <em>Ils viennent de deux endroits.</em></h2>
+      </div>
+      <div class="lead">
+        <p>D'abord, ce que vous avez appris très tôt pour être aimée et à votre place. Ensuite, les milieux dans lesquels vous évoluez, qui ont leurs règles du jeu, implicites, et rarement écrites pour vous. Comme aux échecs : tant qu'on ne voit pas les règles, on les subit.</p>
+        <p>Notre travail consiste à rendre ces deux choses visibles, puis à changer concrètement la façon d'agir. Notre boussole vient de Spinoza : repérer ce qui augmente votre puissance d'agir, les situations où vous vous sentez plus capable et plus vous-même, et ce qui la diminue, même quand tout va bien sur le papier.</p>
+        <p><a href="/methode/" class="link">Comment nous travaillons</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow violet">Vous vous reconnaissez ?</p>
+      <h2 style="max-width:20ch">Les talents les plus stratégiques sont souvent ceux qui sur-adaptent le plus.</h2>
+      <div class="grid grid-3" style="margin-top:2.5rem">
+        {[
+          "Vous réussissez objectivement, mais votre énergie s'épuise à tenir une façade plutôt qu'à avancer. Ce n'est pas un manque. C'est un coût.",
+          "Vous savez que vous avez de la valeur, mais le doute revient. Toujours. Il ralentit vos décisions et vous isole de ce que vous percevez vraiment.",
+          "Vous avez une intuition forte, mais vous ne lui faites plus confiance. Vous sur-rationalisez. Vous déléguez vos décisions au regard des autres.",
+          "Vous jouez parfaitement le jeu, mais ce n'est pas vraiment vous qui jouez. Et ça finit par se voir : dans vos décisions, dans votre présence.",
+          "Vous sur-adaptez en permanence. Vous sentez que ça vous coûte quelque chose d'essentiel, sans savoir comment faire autrement.",
+          "Vous connaissez vos schémas. Vous les analysez. Mais comprendre ne suffit pas à déplacer. Il manque autre chose.",
+        ].map((t, i) => (
+          <div class="card white"><p class="num">0{i + 1}</p><p>{t}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Les offres</p>
+      <h2>Trois façons de travailler <em>avec nous.</em></h2>
+      <div class="grid grid-3" style="margin-top:2.5rem">
+        <div class="price-card featured">
+          <span class="badge">Entreprises</span>
+          <h3>Accompagnement individuel</h3>
+          <p class="price">{PRICING.entreprise.monthly} € <small>HT / mois</small></p>
+          <ul>
+            <li>2 séances d'1h30 par mois, en présentiel</li>
+            <li>Exercices et lectures entre les séances</li>
+            <li>Cloé joignable sur WhatsApp</li>
+            <li>Analyse de chaque séance par Émilien</li>
+            <li>Parcours de {PRICING.entreprise.standardMonths} mois, {PRICING.entreprise.minMonths} mois minimum</li>
+          </ul>
+          <a href="/entreprises/" class="btn btn-violet">Voir l'offre entreprises</a>
+        </div>
+        <div class="price-card">
+          <h3>Atelier en entreprise</h3>
+          <p class="price">{PRICING.atelier.single.toLocaleString('fr-FR')} € <small>HT / atelier de 2h</small></p>
+          <ul>
+            <li>10 personnes maximum</li>
+            <li>Un thème : permission, conformité, imposteur, intuition…</li>
+            <li>Chez vous ou à Kaskad République</li>
+            <li>Cycle de 3 ateliers : {PRICING.atelier.cycle3.toLocaleString('fr-FR')} € HT</li>
+          </ul>
+          <a href="/ateliers/" class="btn btn-outline">Voir les ateliers</a>
+        </div>
+        <div class="price-card">
+          <h3>À titre personnel</h3>
+          <p class="price">{PRICING.perso.monthly} € <small>/ mois, sans engagement</small></p>
+          <ul>
+            <li>Le même accompagnement, financé par vous</li>
+            <li>Séances d'1h30 à Paris 10e</li>
+            <li>Exercices, lectures, WhatsApp</li>
+          </ul>
+          <a href="/particulieres/" class="btn btn-outline">En savoir plus</a>
+        </div>
+      </div>
+      <p class="small muted" style="margin-top:1.5rem">Le premier échange de 30 minutes en visio est offert, sans engagement.</p>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Un regard double</p>
+        <h2>Une entrepreneure en séance. <em>Un philosophe après.</em></h2>
+        <p class="lead" style="margin-top:1.25rem">Cloé Dana conduit chaque séance avec dix ans d'entrepreneuriat derrière elle : décisions sous pression, levées de fonds, équipes. Émilien Dereclenne, docteur en philosophie des sciences cognitives et formé en psychologie du développement, lit chaque séance et apporte une analyse de fond. Vous ne le verrez pas. Vous repartirez avec sa lecture.</p>
+        <div class="btn-row"><a href="/equipe/" class="btn btn-outline">Qui nous sommes</a></div>
+      </div>
+      <div class="grid grid-2" style="gap:1rem">
+        <img src="/images/cloe-dana.webp" alt="Cloé Dana" width="400" height="400" loading="lazy" style="border-radius:6px" />
+        <img src="/images/emilien-dereclenne.webp" alt="Émilien Dereclenne" width="400" height="400" loading="lazy" style="border-radius:6px" />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Ce qui nous différencie</p>
+      <h2>La différence n'est pas de style. <em>Elle est de fond.</em></h2>
+      <table class="compare" style="margin-top:2rem">
+        <thead><tr><th>Coaching classique</th><th>Blocages & Intuition</th></tr></thead>
+        <tbody>
+          <tr><td>Travaille sur les comportements visibles</td><td>Travaille sur ce qui génère les comportements</td></tr>
+          <tr><td>Part des objectifs et du poste</td><td>Part de la personne et de ce qui lui coûte</td></tr>
+          <tr><td>Donne des outils et des techniques</td><td>Désactive ce qui génère le doute chronique</td></tr>
+          <tr><td>Renforce ce qui est déjà bien fait</td><td>Révèle la puissance déjà là, masquée par la sur-adaptation</td></tr>
+          <tr><td>Aide à mieux performer dans le cadre existant</td><td>Produit un leadership qui ne dépend plus du regard externe</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap split">
+      <img src="/images/kaskad-republique-salon.webp" alt="Le salon de Kaskad République, Paris 10e, où se tiennent les séances" width="1200" height="1600" loading="lazy" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" />
+      <div>
+        <p class="eyebrow violet">Où nous travaillons</p>
+        <h2>À Kaskad République, <em>ou chez vous.</em></h2>
+        <p class="lead" style="margin-top:1.25rem">Les séances et les ateliers se tiennent à Kaskad République, un lieu de travail et d'accueil cofondé par Cloé dans le 10e arrondissement de Paris, ou dans vos locaux. Toujours en présentiel : c'est là que le corps parle, et c'est souvent là que les choses bougent.</p>
+        <p style="margin-top:1.5rem"><strong>Déjà en entreprise :</strong> atelier « La permission » pour le réseau Ex Æquo de Covivio, octobre 2026. Six femmes accompagnées en individuel depuis mars 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <p class="eyebrow">Questions fréquentes</p>
+      <h2 style="margin-bottom:2rem">Ce qu'on nous demande <em>souvent.</em></h2>
+      <Faq items={faq} />
+      <p style="margin-top:1.5rem"><a href="/faq/" class="link">Toutes les questions</a></p>
+    </div>
+  </section>
+
+  <CTA location="home-bottom" />
+</Base>

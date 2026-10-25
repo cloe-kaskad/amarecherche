@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import CTA from '../../components/CTA.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('articles', ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const fmt = (d: Date) => d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base title="Articles | Blocages & Intuition" description="Textes de Cloé Dana et Émilien Dereclenne sur le syndrome de l'imposteur, la sur-adaptation, l'intuition et la puissance d'agir des femmes qui dirigent.">
+  <section class="hero tight">
+    <div class="wrap narrow">
+      <p class="eyebrow">Articles</p>
+      <h1>Ce qu'on pense, <em>écrit.</em></h1>
+      <p class="lead">Des textes courts sur ce que nous voyons en séance, et sur ce que la psychologie, les neurosciences et la philosophie en disent.</p>
+    </div>
+  </section>
+  <section class="tight">
+    <div class="wrap narrow article-list">
+      {posts.map((p) => (
+        <a class="article-card" href={`/articles/${p.id}/`}>
+          <p class="meta">{fmt(p.data.date)} · {p.data.author}</p>
+          <h3>{p.data.title}</h3>
+          <p>{p.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+  <CTA location="articles-bottom" />
+</Base>
