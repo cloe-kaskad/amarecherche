@@ -14,27 +14,27 @@ export const FAQ: Faq[] = [
   },
   {
     q: "Comment se déroule l'accompagnement individuel en entreprise ?",
-    a: "Un parcours de six mois en général, quatre mois minimum, avec deux séances d'1h30 par mois en présentiel, dans l'entreprise ou à Kaskad République (Paris 10e). Entre les séances : des exercices à vivre dans la vraie vie, des lectures choisies, et Cloé joignable sur WhatsApp. Chaque séance est relue par Émilien, qui apporte une analyse de fond. Un cadrage à trois (la dirigeante, son entreprise, Cloé) ouvre et clôt le parcours, sans jamais partager le contenu des séances.",
+    a: "Un parcours de six mois en général, quatre mois minimum, avec deux séances d'1h30 par mois en présentiel, dans l'entreprise ou à Kaskad République (Paris 10e). Cloé conduit seule chaque séance, qui est enregistrée et retranscrite. Émilien Dereclenne écoute le transcript, puis ils préparent ensemble la séance suivante, deux à trois exercices à vivre dans la vraie vie et une lecture ou un podcast. Cloé reste joignable sur WhatsApp. Émilien rédige deux notes d'analyse, à mi-parcours et en fin de parcours. Un cadrage à trois (la dirigeante, son entreprise, Cloé) ouvre et clôt le parcours, sans jamais partager le contenu des séances.",
     tags: ['entreprises'],
   },
   {
     q: "Combien coûte l'accompagnement individuel en entreprise ?",
-    a: "600 € HT par mois, facturés à l'entreprise, sur un parcours de six mois (quatre minimum). Le tarif comprend deux séances d'1h30 par mois en présentiel, les exercices et lectures entre les séances, la disponibilité de Cloé sur WhatsApp, l'analyse écrite d'Émilien après chaque séance, et le cadrage et le bilan avec l'entreprise. Aucun supplément pour le lieu ni les déplacements à Paris. Un premier échange de 30 minutes en visio est offert.",
+    a: "600 € HT par mois, facturés à l'entreprise, sur un parcours de six mois (quatre minimum). Le tarif comprend deux séances d'1h30 par mois en présentiel, les exercices et lectures entre les séances, la disponibilité de Cloé sur WhatsApp, l'écoute de chaque séance par Émilien et ses deux notes écrites, et le cadrage et le bilan avec l'entreprise. Aucun supplément pour le lieu ni les déplacements à Paris. Un bilan stratégique de 30 minutes en visio est offert.",
     tags: ['entreprises'],
   },
   {
     q: "Combien coûte l'accompagnement à titre personnel ?",
-    a: "400 € par mois, sans engagement : vous choisissez le rythme et vous arrêtez quand vous voulez. Le tarif comprend les séances d'1h30 à Paris 10e, les exercices et lectures, la disponibilité de Cloé sur WhatsApp et l'analyse écrite d'Émilien. La séance découverte est offerte.",
+    a: "400 € par mois, sans engagement : vous choisissez le rythme et vous arrêtez quand vous voulez. Le tarif comprend les séances d'1h30 à Paris 10e, les exercices et lectures, la disponibilité de Cloé sur WhatsApp, l'écoute de chaque séance par Émilien et ses notes écrites. Le bilan stratégique de départ est offert.",
     tags: ['particulieres'],
   },
   {
     q: "Que contient un atelier en entreprise ?",
-    a: "Un atelier de deux heures pour un groupe de dix personnes maximum, autour d'un thème choisi avec vous : la permission, la conformité, le syndrome de l'imposteur, l'intuition dans la décision, le contrôle, l'ambition. Il alterne apports (psychologie, neurosciences, philosophie), mise en mots et pratiques corporelles. Il se tient chez vous ou à Kaskad République, sans supplément. À partir de 1 500 € HT l'atelier, 3 600 € HT le cycle de trois.",
+    a: "Un atelier de deux heures pour un groupe de dix personnes maximum, autour d'un thème choisi avec vous : la permission, la conformité, le syndrome de l'imposteur, l'intuition dans la décision, le contrôle, l'ambition. Il alterne apports (psychologie, neurosciences, philosophie), mise en mots et pratiques corporelles. Chaque participante repart avec un exercice, et un point de suivi a lieu à J+15. Il se tient chez vous ou à Kaskad République, sans supplément. À partir de 1 500 € HT l'atelier, 3 600 € HT le cycle de trois.",
     tags: ['ateliers', 'home'],
   },
   {
     q: "Pourquoi un philosophe dans un accompagnement professionnel ?",
-    a: "Pas pour faire de la théorie. Nous nous appuyons sur une idée de Spinoza : ce qui compte, c'est de savoir ce qui augmente votre puissance d'agir et ce qui la diminue. Concrètement, dans quelles situations vous vous sentez plus capable et plus vous-même, et dans lesquelles vous vous videz, même quand tout va bien sur le papier. Émilien Dereclenne relit chaque séance avec ce double regard philosophique et psychologique, et en tire les points précis sur lesquels déplacer l'effort.",
+    a: "Pas pour faire de la théorie. Nous nous appuyons sur une idée de Spinoza : ce qui compte, c'est de savoir ce qui augmente votre puissance d'agir et ce qui la diminue. Concrètement, dans quelles situations vous vous sentez plus capable et plus vous-même, et dans lesquelles vous vous videz, même quand tout va bien sur le papier. Émilien Dereclenne écoute chaque séance avec ce double regard philosophique et psychologique, prépare la suivante avec Cloé, et rédige deux notes d'analyse au cours du parcours.",
     tags: ['methode', 'home'],
   },
   {
@@ -59,7 +59,7 @@ export const FAQ: Faq[] = [
   },
   {
     q: "Comment démarrer ?",
-    a: "Réservez un échange de 30 minutes en visio. Vous nous dites où vous en êtes et ce que vous cherchez, pour vous ou pour une personne de votre équipe. Nous vous disons si ce programme est fait pour cela, et comment nous travaillerions. Sans engagement.",
+    a: "Réservez un bilan stratégique de 30 minutes en visio, offert. Vous dites où vous en êtes et ce que vous cherchez. Pour une personne de votre équipe, c'est un diagnostic entreprise : sa situation, ce qui coûte, ce qu'on ferait. Sans engagement.",
     tags: ['general', 'home'],
   },
 ];

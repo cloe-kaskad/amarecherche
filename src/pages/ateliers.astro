@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import CTA from '../components/CTA.astro';
 import Faq from '../components/Faq.astro';
+import Presenter from '../components/Presenter.astro';
 import { FAQ, faqSchema } from '../data/faq';
 import { CALENDAR_URL, PRICING } from '../site';
 
@@ -44,12 +45,12 @@ const service = {
     <div class="wrap split hero-split">
       <div>
         <p class="eyebrow">Ateliers collectifs · En entreprise</p>
-        <h1>Deux heures, dix personnes, un sujet qu'on <em>n'aborde jamais.</em></h1>
+        <h1>Deux heures pour nommer ce qui freine. <em>Et le déplacer.</em></h1>
         <p class="lead">
-          Un atelier Blocages & Intuition ne donne pas des techniques. Il rend visible ce qui, chez vos talents, génère le doute, la sur-adaptation et le silence en réunion. Et il leur donne, avec le corps autant qu'avec la tête, une première façon de faire autrement.
+          Un atelier ne change pas une équipe en deux heures. Il donne aux participantes les mots pour repérer, au travail comme ailleurs, ce qui les retient, et un exercice à vivre dans les semaines qui suivent pour que ça tienne. Dix personnes maximum, un thème, le corps autant que la tête.
         </p>
         <div class="btn-row">
-          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="ateliers-hero">Organiser un atelier</a>
+          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="ateliers-hero">Demander un diagnostic entreprise</a>
           <a href="#themes" class="btn btn-outline">Voir les thèmes</a>
         </div>
         <div class="hero-meta">
@@ -68,7 +69,7 @@ const service = {
     <div class="wrap">
       <p class="eyebrow violet">Les thèmes</p>
       <h2>Un mot, <em>un atelier.</em></h2>
-      <p class="lead" style="margin-top:1rem;max-width:720px">Chaque atelier part d'un seul thème, choisi avec vous (ou par sondage auprès des participantes, comme chez Covivio). Les thèmes se combinent en cycle de trois.</p>
+      <p class="lead" style="margin-top:1rem;max-width:720px">Chaque atelier part d'un seul thème, choisi avec vous ou par sondage auprès des participantes. Les thèmes se combinent en cycle de trois.</p>
       <div class="grid grid-3" style="margin-top:2.5rem">
         {themes.map((th, i) => (
           <div class="card white"><p class="num">0{i + 1}</p><h3>{th.t}</h3><p>{th.d}</p></div>
@@ -92,6 +93,20 @@ const service = {
     </div>
   </section>
 
+  <section class="dark">
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow">Après l'atelier</p>
+        <h2>Pour que ça tienne <em>après.</em></h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div><h3>Un exercice à emporter</h3><p>Donné en fin d'atelier, calibré sur le thème : une seule chose à faire, précise, dans les situations réelles des deux semaines qui suivent.</p></div></div>
+        <div class="step"><div><h3>Un point de suivi à J+15</h3><p>Chaque participante dit ce qu'elle a remarqué, ce qui a bougé, ce qui résiste. Cloé répond à chacune. C'est ce retour qui transforme un bon moment en changement.</p></div></div>
+        <div class="step"><div><h3>Un fil rouge en cycle</h3><p>Sur trois ateliers, les retours du J+15 nourrissent la préparation du suivant, avec Émilien Dereclenne. Le groupe avance au lieu de recommencer.</p></div></div>
+      </div>
+    </div>
+  </section>
+
   <section class="alt">
     <div class="wrap">
       <p class="eyebrow violet">Formats et tarifs</p>
@@ -104,7 +119,7 @@ const service = {
             <li><Icon name="users" class="violet" /><span>2 heures · 10 personnes maximum</span></li>
             <li><Icon name="compass" class="violet" /><span>Un thème choisi avec vous</span></li>
             <li><Icon name="pin" class="violet" /><span>Chez vous ou à Kaskad République, sans supplément</span></li>
-            <li><Icon name="breath" class="violet" /><span>Un exercice à emporter par participante</span></li>
+            <li><Icon name="breath" class="violet" /><span>Un exercice à emporter, et un point de suivi à J+15</span></li>
           </ul>
           <a href={CALENDAR_URL} class="btn btn-outline" target="_blank" rel="noopener" data-event="rdv_click" data-location="ateliers-single">Organiser un atelier</a>
         </div>
@@ -115,7 +130,7 @@ const service = {
           <ul class="iconlist">
             <li><Icon name="calendar" class="violet" /><span>3 ateliers de 2h, un thème par séance, à 3 à 6 semaines d'intervalle</span></li>
             <li><Icon name="users" class="violet" /><span>Le même groupe, pour que la confiance s'installe</span></li>
-            <li><Icon name="pen" class="violet" /><span>Préparation entre les séances avec Émilien Dereclenne, à partir de ce qui a émergé</span></li>
+            <li><Icon name="pen" class="violet" /><span>Préparation entre les ateliers avec Émilien Dereclenne, à partir des retours du J+15</span></li>
             <li><Icon name="arrow" class="violet" /><span>Un fil rouge : de la compréhension à l'action</span></li>
           </ul>
           <a href={CALENDAR_URL} class="btn btn-violet" target="_blank" rel="noopener" data-event="rdv_click" data-location="ateliers-cycle">Organiser un cycle</a>
@@ -136,7 +151,9 @@ const service = {
     </div>
   </section>
 
-  <section class="alt">
+  <Presenter context="ateliers" photo="/images/lc-table-ronde.webp" />
+
+  <section>
     <div class="wrap narrow">
       <p class="eyebrow violet">Questions fréquentes</p>
       <h2 style="margin-bottom:2rem">Sur les <em>ateliers.</em></h2>
@@ -144,5 +161,5 @@ const service = {
     </div>
   </section>
 
-  <CTA location="ateliers-bottom" title="Un atelier pour votre réseau, votre équipe, votre <em>promotion ?</em>" text="Dites-nous le contexte, le nombre de participantes et ce que vous aimeriez qu'elles emportent. On vous propose un thème et une date." secondary={{ href: '/accompagnement/#presentation', label: 'Recevoir la présentation' }} />
+  <CTA location="ateliers-bottom" title="Un atelier pour votre réseau, votre équipe, votre <em>promotion ?</em>" text="Trente minutes de diagnostic entreprise, offertes : le contexte, le nombre de participantes, ce que vous aimeriez qu'elles emportent. On vous propose un thème et une date." secondary={{ href: '/accompagnement/#presentation', label: 'Recevoir la présentation' }} />
 </Base>

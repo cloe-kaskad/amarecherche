@@ -1,0 +1,21 @@
+---
+import { TESTIMONIALS } from '../data/testimonials';
+interface Props { title?: string }
+const { title = 'Elles en <em>parlent.</em>' } = Astro.props;
+---
+{TESTIMONIALS.length > 0 && (
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Témoignages</p>
+      <h2 set:html={title} />
+      <div class="grid grid-3" style="margin-top:2.5rem">
+        {TESTIMONIALS.map((t) => (
+          <figure class="card white quote-card">
+            <blockquote>« {t.quote} »</blockquote>
+            <figcaption><strong>{t.name}</strong><span>{t.role}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

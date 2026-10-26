@@ -335,3 +335,48 @@ ul.plain li::before { content: ''; position: absolute; left: 0; top: 0.6em; widt
 .point .k { font-family: var(--font-display); font-weight: 700; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; color: var(--rouge); }
 .point p + p { margin-top: 0; }
 .point .k { margin: 0; }
+
+/* Qui vous accompagne, témoignages, bandes photo */
+.iconlist .dot { flex: 0 0 auto; width: .55rem; height: .55rem; border-radius: 50%; background: var(--rouge); margin-top: .55rem; }
+.quote-card blockquote { font-family: var(--font-accent); font-style: italic; font-size: 1.15rem; line-height: 1.5; color: var(--noir); }
+.quote-card figcaption { margin-top: 1.25rem; display: grid; }
+.quote-card figcaption strong { font-family: var(--font-display); }
+.quote-card figcaption span { color: var(--gris); font-size: .9rem; }
+.photo-band { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; display: block; }
+@media (max-width: 640px) { .photo-band { aspect-ratio: 4 / 3; } }
+.band-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+.band-grid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; }
+.band-grid img:nth-child(2) { margin-top: 2.5rem; }
+@media (max-width: 640px) { .band-grid { grid-template-columns: 1fr; } .band-grid img:nth-child(2) { margin-top: 0; } }
+
+/* Moins de… plus de… */
+.shift { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.shift > div { padding: 1.75rem; border-radius: 6px; }
+.shift .less { background: var(--beige); }
+.shift .more { background: var(--violet); color: var(--creme); }
+.shift h3 { font-family: var(--font-accent); font-style: italic; font-weight: 400; font-size: 1.8rem; margin-bottom: 1rem; }
+.shift .more h3 { color: var(--rose); }
+.shift ul { list-style: none; display: grid; gap: .6rem; }
+.shift li { padding-left: 1.1rem; position: relative; }
+.shift li::before { content: ''; position: absolute; left: 0; top: .6em; width: .45rem; height: .45rem; border-radius: 50%; background: var(--rouge); }
+.shift .more li::before { background: var(--rose); }
+@media (max-width: 700px) { .shift { grid-template-columns: 1fr; } }
+
+/* Trois points alignés */
+.points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; align-items: start; }
+.points .k { font-family: var(--font-display); font-weight: 700; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; color: var(--rouge); margin: 0 0 .75rem; }
+.points p { margin: 0; }
+@media (max-width: 760px) { .points { grid-template-columns: 1fr; } }
+
+/* Cartes des leviers : numéro italique, filet, mots-clés calés en bas */
+.lever { display: flex; flex-direction: column; min-height: 100%; border-top: 2px solid var(--violet); border-radius: 0 0 6px 6px; }
+.lever .num.n { font-family: var(--font-accent); font-style: italic; font-weight: 400; font-size: 2.2rem; color: var(--violet); line-height: 1; margin: .25rem 0 1rem; letter-spacing: 0; }
+.lever .tags { margin-top: auto; padding-top: 1.25rem; }
+.grid.levers { align-items: stretch; }
+
+/* Hero accueil : plus d'air */
+.hero-grid { grid-template-columns: 1.05fr .95fr; }
+.hero-grid .hero-photo { aspect-ratio: 4 / 5; }
+.hero-grid .lead { margin-top: 2rem; }
+.hero-grid .btn-row { margin-top: 2.25rem; }
+@media (min-width: 900px) { .hero-grid .btn-row { flex-wrap: nowrap; } .hero-grid .btn { padding-left: 1.2rem; padding-right: 1.2rem; } }

@@ -3,6 +3,8 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import CTA from '../components/CTA.astro';
 import Faq from '../components/Faq.astro';
+import Presenter from '../components/Presenter.astro';
+import Testimonials from '../components/Testimonials.astro';
 import LeadForm from '../components/LeadForm.astro';
 import { FAQ, faqSchema } from '../data/faq';
 import { CALENDAR_URL, PRICING } from '../site';
@@ -37,7 +39,7 @@ const services = [
           Dirigeante, fondatrice, cadre clé : vous performez, vous vous adaptez, vous tenez. Et ça se paie, en doute, en décisions retardées, en énergie. Cet accompagnement travaille sur ce qui génère ces comportements, pas seulement sur les comportements. Financé par votre entreprise, ou par vous.
         </p>
         <div class="btn-row">
-          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="acc-hero">Réserver un échange</a>
+          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="acc-hero">Réserver mon bilan stratégique</a>
           <a href="#tarifs" class="btn btn-outline">Les deux formules</a>
         </div>
         <div class="hero-meta">
@@ -55,7 +57,7 @@ const services = [
   <section class="alt">
     <div class="wrap">
       <p class="eyebrow violet">Pour qui</p>
-      <h2 style="max-width:22ch">Les talents les plus stratégiques sont souvent ceux qui sur-adaptent le plus.</h2>
+      <h2 style="max-width:22ch">Les talents les plus stratégiques sont souvent ceux qui se sur-adaptent le plus.</h2>
       <div class="grid grid-3" style="margin-top:2.5rem">
         <div class="card white"><p class="num">La façade qui épuise</p><p>Vous performez objectivement, mais votre énergie part dans la façade plutôt que dans l'avancée. Vu de l'entreprise : un désengagement silencieux, repéré tard.</p></div>
         <div class="card white"><p class="num">Le doute qui ralentit</p><p>Vous savez que vous avez de la valeur. Le doute revient quand même, ralentit vos arbitrages et fragilise votre leadership.</p></div>
@@ -72,10 +74,11 @@ const services = [
         <p class="lead" style="margin-top:1.25rem">Un schéma appris sur des années ne se déplace pas en une séance. Le parcours est pensé pour que le travail tienne dans la durée.</p>
       </div>
       <div class="steps">
-        <div class="step"><div><h3>Une séance découverte offerte</h3><p>Trente minutes en visio. On dresse le paysage, et on voit ensemble si ça a du sens de continuer. Si quelque chose relève du soin, Cloé vous le dira.</p></div></div>
-        <div class="step"><div><h3>Deux séances d'1h30 par mois</h3><p>En présentiel, à Kaskad République (Paris 10e) ou dans votre entreprise. Chaque séance part de ce que vous vivez maintenant, pas d'une méthode plaquée. Elle est enregistrée et retranscrite pour vous.</p></div></div>
-        <div class="step"><div><h3>Entre les séances</h3><p>Un à deux exercices à vivre dans la vraie vie, une lecture choisie, et Cloé joignable sur WhatsApp. C'est souvent là que les choses bougent.</p></div></div>
-        <div class="step"><div><h3>Le regard d'Émilien</h3><p>Émilien Dereclenne lit chaque transcript et produit une analyse écrite : les tensions de fond, les mécanismes en jeu, les points précis sur lesquels déplacer l'effort. Vous ne le verrez pas. Vous repartirez avec sa lecture.</p></div></div>
+        <div class="step"><div><h3>Un bilan stratégique offert</h3><p>Trente minutes en visio. On dresse le paysage, et on voit ensemble si ça a du sens de continuer. Si quelque chose relève du soin, Cloé vous le dira.</p></div></div>
+        <div class="step"><div><h3>Deux séances d'1h30 par mois, avec Cloé</h3><p>En présentiel, à Kaskad République (Paris 10e) ou dans votre entreprise. Cloé conduit seule chaque séance, depuis ce que vous vivez maintenant, pas depuis une méthode plaquée. La séance est enregistrée et retranscrite pour vous.</p></div></div>
+        <div class="step"><div><h3>Après chaque séance, Émilien écoute</h3><p>Émilien Dereclenne lit le transcript. Puis Cloé et lui débriefent ensemble : ce qui s'est joué, ce qui résiste, et ils préparent la séance suivante.</p></div></div>
+        <div class="step"><div><h3>Entre les séances, vous vivez</h3><p>Deux à trois exercices à faire dans la vraie vie, une lecture ou un podcast choisis pour vous, et Cloé joignable sur WhatsApp. C'est souvent là que les choses bougent.</p></div></div>
+        <div class="step"><div><h3>Deux notes écrites d'Émilien</h3><p>À mi-parcours et en fin de parcours, une analyse écrite : les tensions de fond, les mécanismes en jeu, les points sur lesquels déplacer l'effort. Une lecture de votre situation que vous n'aviez pas en entrant.</p></div></div>
         <div class="step"><div><h3>Un bilan</h3><p>Ce qui a bougé, ce qui reste à tenir, et si une suite a du sens. Avec votre entreprise si elle finance, toujours sans le contenu des séances.</p></div></div>
       </div>
     </div>
@@ -92,15 +95,15 @@ const services = [
           <h3>Parcours entreprise</h3>
           <p class="price">{PRICING.entreprise.monthly} € <small>HT / mois</small></p>
           <ul class="iconlist">
-            <li><Icon name="calendar" class="violet" /><span>2 séances individuelles d'1h30 par mois, garanties</span></li>
-            <li><Icon name="transcript" class="violet" /><span>Transcript, exercices personnalisés et lectures</span></li>
+            <li><Icon name="calendar" class="violet" /><span>2 séances individuelles d'1h30 par mois, avec Cloé</span></li>
+            <li><Icon name="transcript" class="violet" /><span>Transcript, 2 à 3 exercices et lectures ou podcasts entre les séances</span></li>
             <li><Icon name="message" class="violet" /><span>Cloé joignable sur WhatsApp entre les séances</span></li>
-            <li><Icon name="pen" class="violet" /><span>Analyse écrite d'Émilien après chaque séance</span></li>
+            <li><Icon name="pen" class="violet" /><span>Chaque séance écoutée par Émilien, deux notes écrites : à mi-parcours et en fin de parcours</span></li>
             <li><Icon name="handshake" class="violet" /><span>Cadrage et bilan avec l'entreprise, sans le contenu des séances</span></li>
             <li><Icon name="repeat" class="violet" /><span>Parcours de {PRICING.entreprise.standardMonths} mois, {PRICING.entreprise.minMonths} mois minimum, prolongeable</span></li>
-            <li><Icon name="building" class="violet" /><span>Facturation à l'entreprise, dans vos locaux ou à Paris 10e</span></li>
+            <li><Icon name="pin" class="violet" /><span>Dans vos locaux ou à Kaskad République, Paris 10e</span></li>
           </ul>
-          <a href={CALENDAR_URL} class="btn btn-violet" target="_blank" rel="noopener" data-event="rdv_click" data-location="acc-pricing-entreprise">Réserver un échange</a>
+          <a href={CALENDAR_URL} class="btn btn-violet" target="_blank" rel="noopener" data-event="rdv_click" data-location="acc-pricing-entreprise">Demander un diagnostic entreprise</a>
         </div>
         <div class="price-card" id="personnel">
           <span class="badge" style="background:var(--rouge)">À titre personnel</span>
@@ -108,13 +111,13 @@ const services = [
           <p class="price">{PRICING.perso.monthly} € <small>/ mois · sans engagement</small></p>
           <ul class="iconlist">
             <li><Icon name="calendar" class="violet" /><span>Séances d'1h30, au rythme que vous choisissez</span></li>
-            <li><Icon name="transcript" class="violet" /><span>Transcript, exercices personnalisés et lectures</span></li>
+            <li><Icon name="transcript" class="violet" /><span>Transcript, 2 à 3 exercices et lectures ou podcasts entre les séances</span></li>
             <li><Icon name="message" class="violet" /><span>Cloé joignable sur WhatsApp entre les séances</span></li>
-            <li><Icon name="pen" class="violet" /><span>Analyse écrite d'Émilien après chaque séance</span></li>
+            <li><Icon name="pen" class="violet" /><span>Chaque séance écoutée par Émilien, deux notes écrites : à mi-parcours et en fin de parcours</span></li>
             <li><Icon name="pin" class="violet" /><span>À Kaskad République, Paris 10e</span></li>
             <li><Icon name="repeat" class="violet" /><span>Vous arrêtez quand vous voulez</span></li>
           </ul>
-          <a href={CALENDAR_URL} class="btn btn-outline" target="_blank" rel="noopener" data-event="rdv_click" data-location="acc-pricing-perso">Réserver la séance découverte</a>
+          <a href={CALENDAR_URL} class="btn btn-outline" target="_blank" rel="noopener" data-event="rdv_click" data-location="acc-pricing-perso">Réserver mon bilan stratégique</a>
         </div>
       </div>
       <p class="small muted" style="margin-top:1.5rem">Vous êtes fondatrice ou dirigeante de votre société ? Elle peut financer le parcours entreprise. On en parle lors du premier échange.</p>
@@ -126,20 +129,28 @@ const services = [
       <img src="/images/kaskad-republique-verriere.webp" alt="La verrière de Kaskad République, Paris 10e" width="1200" height="1600" loading="lazy" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" />
       <div>
         <p class="eyebrow">Côté entreprise</p>
-        <h2>Ce que votre entreprise <em>y gagne.</em></h2>
+        <h2>Un profil rare, <em>ça se protège.</em></h2>
         <p class="lead" style="margin-top:1.25rem">Remplacer un profil senior coûte six à neuf mois de salaire. Une puissance diminuée coûte moins visiblement, et plus cher. Cet accompagnement coûte moins qu'un mois de ce que vous perdez déjà.</p>
-        <p style="margin-top:1rem"><strong>Déjà en entreprise :</strong> atelier « La permission » pour le réseau Ex Æquo de Covivio, octobre 2026. Six femmes accompagnées en individuel depuis mars 2026.</p>
+        <ul class="iconlist" style="margin-top:1.5rem">
+          <li><span class="dot"></span><span><strong>En entreprise :</strong> atelier « La permission » pour le réseau Ex Æquo de Covivio, octobre 2026.</span></li>
+          <li><span class="dot"></span><span><strong>En individuel :</strong> six dirigeantes et entrepreneures accompagnées depuis mars 2026.</span></li>
+        </ul>
+        <p style="margin-top:1.25rem">Pour une personne de votre équipe, le premier échange prend la forme d'un <strong>diagnostic entreprise</strong> : trente minutes pour comprendre sa situation, ce qui coûte, et ce qu'on ferait.</p>
         <p style="margin-top:1rem"><a href="/ateliers/" class="link">Découvrir les ateliers collectifs</a></p>
       </div>
     </div>
   </section>
 
+  <Presenter photo="/images/cloe-paperboard.webp" />
+
+  <Testimonials />
+
   <section class="alt" id="presentation">
     <div class="wrap split top">
       <div>
         <p class="eyebrow violet">La présentation</p>
-        <h2>Recevez le programme <em>en PDF.</em></h2>
-        <p class="lead" style="margin-top:1.25rem">La méthode, les quatre leviers d'intervention, le format, l'équipe et les tarifs, à lire tranquillement ou à partager en interne. Réponse sous 48h, aucune newsletter sans votre accord.</p>
+        <h2>Recevez le programme <em>en détail.</em></h2>
+        <p class="lead" style="margin-top:1.25rem">La méthode, les quatre leviers d'intervention, le déroulé, l'équipe et les tarifs, à lire tranquillement ou à partager en interne. Réponse sous 48h, aucune newsletter sans votre accord.</p>
       </div>
       <LeadForm context="accompagnement" />
     </div>
@@ -153,5 +164,5 @@ const services = [
     </div>
   </section>
 
-  <CTA location="acc-bottom" title="Parlons de vous, ou de la personne que vous avez <em>en tête.</em>" text="Trente minutes en visio pour comprendre la situation, ce qui coûte, et vous dire si ce parcours est fait pour ça. Sans engagement, et sans jargon." secondary={null} />
+  <CTA location="acc-bottom" title="Votre bilan stratégique, ou un diagnostic pour une personne de <em>votre équipe.</em>" text="Trente minutes en visio, offertes. Pour vous : où vous en êtes, ce qui coûte, ce qui a du sens. Pour une personne de votre équipe : sa situation, et ce qu'on ferait. Sans engagement, et sans jargon." secondary={null} />
 </Base>

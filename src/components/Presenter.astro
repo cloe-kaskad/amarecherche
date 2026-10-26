@@ -1,0 +1,21 @@
+---
+// « Qui vous accompagne » : rappel compact de qui est Cloé, et du rôle d'Émilien, sur chaque page.
+interface Props { photo?: string; context?: 'default' | 'ateliers' }
+const { photo = '/images/lc-prise-de-parole.webp', context = 'default' } = Astro.props;
+---
+<section class="alt">
+  <div class="wrap split">
+    <img src={photo} alt="Cloé Dana en prise de parole lors d'une soirée Liberté, Chérie !" width="1800" height="1350" loading="lazy" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover" />
+    <div>
+      <p class="eyebrow violet">Qui vous accompagne</p>
+      <h2>Cloé Dana, et le regard <em>d'Émilien.</em></h2>
+      <ul class="iconlist" style="margin-top:1.5rem">
+        <li><span class="dot"></span><span>Dix ans d'entrepreneuriat en tech : levées de fonds, équipes internationales, décisions sous pression. Forbes 30 Under 30.</span></li>
+        <li><span class="dot"></span><span>Cofondatrice de Kaskad, des lieux pour travailler autrement, et de Liberté, Chérie !, un projet culturel sur la liberté et l'identité féminines.</span></li>
+        <li><span class="dot"></span><span>Formée au coaching, elle conduit seule chaque séance{context === 'ateliers' ? ' et anime chaque atelier' : ''}, depuis ce que la personne vit maintenant.</span></li>
+        <li><span class="dot"></span><span>Émilien Dereclenne, docteur en philosophie des sciences cognitives formé en psychologie du développement, écoute chaque séance et prépare la suite avec elle.</span></li>
+      </ul>
+      <p style="margin-top:1.25rem"><a href="/equipe/" class="link">Qui nous sommes</a> · <a href="/methode/" class="link">Comment nous travaillons</a></p>
+    </div>
+  </div>
+</section>

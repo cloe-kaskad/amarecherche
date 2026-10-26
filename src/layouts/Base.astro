@@ -29,7 +29,7 @@ const org = {
   description:
     "Accompagnement individuel et ateliers pour dirigeantes et femmes cadres clés : syndrome de l'imposteur, sur-adaptation, intuition dans la décision. Psychologie, neurosciences, philosophie et corps. Paris.",
   areaServed: { '@type': 'City', name: 'Paris' },
-  address: { '@type': 'PostalAddress', addressLocality: 'Paris', postalCode: '75010', addressCountry: 'FR' },
+  address: { '@type': 'PostalAddress', streetAddress: '5 rue Bouchardon', addressLocality: 'Paris', postalCode: '75010', addressCountry: 'FR' },
   founder: { '@id': 'https://amarecherche.fr/equipe/#cloe-dana' },
   employee: [{ '@id': 'https://amarecherche.fr/equipe/#cloe-dana' }, { '@id': 'https://amarecherche.fr/equipe/#emilien-dereclenne' }],
   sameAs: [SITE.linkedinCloe, SITE.linkedinCompany].filter(Boolean),
@@ -118,7 +118,7 @@ const nav = [
           {nav.map((n) => (
             <a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a>
           ))}
-          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="nav">Réserver un échange</a>
+          <a href={CALENDAR_URL} class="btn btn-primary" target="_blank" rel="noopener" data-event="rdv_click" data-location="nav">Bilan stratégique offert</a>
         </nav>
       </div>
     </header>
@@ -133,7 +133,7 @@ const nav = [
           <div>
             <a href="/" class="logo"><span class="l1">blocages</span><span class="l2">&amp; intuition</span></a>
             <p style="margin-top:1rem;max-width:34ch">
-              Accompagnement de dirigeantes et de femmes cadres clés. Psychologie, neurosciences, philosophie, et le corps. Paris 10e.
+              Accompagnement de dirigeantes et de femmes cadres clés. Psychologie, neurosciences, philosophie, et le corps. Kaskad République, 5 rue Bouchardon, Paris 10e.
             </p>
             <p class="small" style="margin-top:1rem">Un projet de l'univers <a href="https://libertecherie.paris" rel="noopener">Liberté, Chérie !</a></p>
           </div>
@@ -157,7 +157,7 @@ const nav = [
           <div>
             <h4>Contact</h4>
             <ul>
-              <li><a href={CALENDAR_URL} target="_blank" rel="noopener" data-event="rdv_click" data-location="footer">Réserver un échange</a></li>
+              <li><a href={CALENDAR_URL} target="_blank" rel="noopener" data-event="rdv_click" data-location="footer">Réserver mon bilan stratégique</a></li>
               <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
               <li><a href={SITE.linkedinCloe} target="_blank" rel="noopener">LinkedIn</a></li>
             </ul>
