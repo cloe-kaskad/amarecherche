@@ -39,7 +39,7 @@ a { color: inherit; }
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 700;
-  line-height: 1.02;
+  line-height: 0.98;
   letter-spacing: -0.015em;
   color: var(--noir);
 }
@@ -56,7 +56,8 @@ h1 em, h2 em, h3 em, .accent {
   color: var(--violet);
   white-space: nowrap;
 }
-h2 { line-height: 1.06; }
+h2 { line-height: 1.0; }
+h1 em, h2 em, h3 em { line-height: 0; vertical-align: baseline; }
 p + p { margin-top: 1rem; }
 .lead { font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.5; color: #2b2724; }
 .muted { color: var(--gris); }
