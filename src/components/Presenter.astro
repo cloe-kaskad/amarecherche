@@ -1,12 +1,12 @@
 ---
 // « Qui vous accompagne » : rappel compact de qui est Cloé, et du rôle d'Émilien, sur chaque page.
 interface Props { photo?: string; context?: 'default' | 'ateliers'; duo?: boolean }
-const { photo = '/images/duo-etageres.webp', context = 'default', duo = false } = Astro.props;
+const { photo = '/images/duo-etageres-v2.webp', context = 'default', duo = false } = Astro.props;
 ---
 <section class="alt">
   <div class="wrap split">
     {duo ? (
-      <img src="/images/duo-toile-bleue.webp" alt="Cloé Dana et Émilien Dereclenne" width="1202" height="1586" loading="lazy" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" />
+      <img src="/images/duo-toile-bleue-v2.webp" alt="Cloé Dana et Émilien Dereclenne" width="1202" height="1586" loading="lazy" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" />
     ) : (
       <img src={photo} alt="Cloé Dana et Émilien Dereclenne, Blocages & Intuition" width="1202" height="1586" loading="lazy" style="border-radius:8px;aspect-ratio:4/5;object-fit:cover" />
     )}
