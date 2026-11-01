@@ -380,3 +380,5 @@ ul.plain li::before { content: ''; position: absolute; left: 0; top: 0.6em; widt
 .hero-grid .lead { margin-top: 2rem; }
 .hero-grid .btn-row { margin-top: 2.25rem; }
 @media (min-width: 900px) { .hero-grid .btn-row { flex-wrap: nowrap; } .hero-grid .btn { padding-left: 1.2rem; padding-right: 1.2rem; } }
+.photo-wide { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center 40%; border-radius: 8px; display: block; }
+@media (max-width: 640px) { .photo-wide { aspect-ratio: 4 / 3; } }
