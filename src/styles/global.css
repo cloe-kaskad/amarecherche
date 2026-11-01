@@ -203,8 +203,8 @@ section.dark .btn-outline:hover { background: var(--blanc); color: var(--violet)
 .hero-meta { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1.5rem; color: var(--gris); font-size: 0.9rem; }
 
 /* Team */
-.person { display: grid; grid-template-columns: 180px 1fr; gap: 2rem; align-items: start; }
-.person img { width: 180px; height: 180px; object-fit: cover; border-radius: 6px; }
+.person { display: grid; grid-template-columns: 260px 1fr; gap: 2.5rem; align-items: start; }
+.person img { width: 260px; height: 330px; object-fit: cover; border-radius: 8px; }
 .person .role { color: var(--rouge); font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; margin: 0.3rem 0 1rem; }
 @media (max-width: 640px) { .person { grid-template-columns: 1fr; } }
 
